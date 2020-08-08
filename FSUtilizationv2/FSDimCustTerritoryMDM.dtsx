@@ -1,0 +1,836 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/29/2020 3:16:04 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PWNC0429TABLU01"
+  DTS:CreatorName="BDX\10286045"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{F10D0863-CB61-4DA1-9DEA-7EF4E288CC52}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="FSDimCustTerritoryMDM"
+  DTS:VersionGUID="{55280609-C33B-4967-9705-824E8EF76C83}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E2C342C6-DEEC-477F-8352-689ED4EF1924}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Ops;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{EFB67788-018B-4F4B-A8DA-ED1CA6203C45}"
+      DTS:ObjectName="SourceConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=PWIL0690PSDB22\ODSDW;Initial Catalog=ODS_1;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{8D79E695-FCB6-4A64-9B08-447257D004CC}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - FSDimCustTerritoryMDM"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FSDimCustTerritoryMDM]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].Columns[Customer_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="Customer_ID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[Customer_ID]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[Customer_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].Columns[MDMCustomer_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="MDMCustomer_ID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[MDMCustomer_ID]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MDMCustomer_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].Columns[Enterprise_Account_Number__c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Enterprise_Account_Number__c"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[Enterprise_Account_Number__c]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[Enterprise_Account_Number__c]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].Columns[FSMEmployeeID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="FSMEmployeeID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[FSMEmployeeID]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[FSMEmployeeID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].Columns[ZipCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ZipCode"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[ZipCode]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ZipCode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].Columns[Country]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Country"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[Country]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[Country]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].Columns[Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].Columns[RegionId]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="18"
+                      cachedName="RegionId"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[RegionId]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[RegionId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].Columns[RegionName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="RegionName"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[RegionName]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[RegionName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].Columns[TerritoryId]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="18"
+                      cachedName="TerritoryId"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[TerritoryId]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[TerritoryId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].Columns[TerritoryName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="TerritoryName"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[TerritoryName]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[TerritoryName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].Columns[FSMResourceID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="18"
+                      cachedName="FSMResourceID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[FSMResourceID]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[FSMResourceID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].Columns[FSMName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="FSMName"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[FSMName]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[FSMName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[Customer_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="Customer_ID"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[MDMCustomer_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="MDMCustomer_ID"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[Enterprise_Account_Number__c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Enterprise_Account_Number__c"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[FSMEmployeeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="FSMEmployeeID"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[ZipCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ZipCode"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[Country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Country"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="Name"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[RegionId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="RegionId"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[RegionName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="RegionName"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[TerritoryId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="TerritoryId"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[TerritoryName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="TerritoryName"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[FSMResourceID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="FSMResourceID"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[FSMName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="FSMName"
+                      scale="255" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - Query"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source - Query"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT DISTINCT 
+       Cust.Customer_ID, 
+       Cust.MDMCustomer_ID, 
+       ERP.Enterprise_Account_Number__c, 
+       TerritoryResource.[GlobalId__c] AS FSMEmployeeID, 
+       Cust.ZipCode, 
+       Cust.Country, 
+       ZipCodes.Name, 
+       TerritoryZip.ServiceTerritoryRegionWorkZone__c AS RegionId, 
+       Region.Name AS RegionName, 
+       Region.[ParentTerritoryId] AS TerritoryId, 
+       Territory.Name AS TerritoryName, 
+       TerritoryMember.ServiceResourceId AS FSMResourceID, 
+       TerritoryResource.[Name] AS FSMName
+FROM [dbo].[Customer_ECC] Cust WITH(NOLOCK)
+     LEFT JOIN [SFDC].[Zip_Codes__c] ZipCodes ON --US zip codes sometimes has extra 4 digit codes.
+     CASE
+         WHEN Cust.Country = 'US'
+         THEN LEFT(Cust.ZipCode, 5)
+         WHEN Cust.Country = 'CA'
+         THEN Cust.ZipCode
+     END = ZipCodes.Name
+     AND ZipCodes.IsDeleted = 'false'							--look at active records only
+     JOIN [SFDC].[ServiceTerritoryZipCode__c] TerritoryZip WITH(NOLOCK) ON ZipCodes.Id = TerritoryZip.[ZipCode__c]
+                                                                           AND TerritoryZip.[ServiceTerritoryType__c] = 'Region'
+                                                                           AND TerritoryZip.IsDeleted = 'false'
+     LEFT JOIN [SFDC].[ServiceTerritory] Region WITH(NOLOCK) ON TerritoryZip.[ServiceTerritoryRegionWorkZone__c] = Region.Id
+                                                                AND Region.IsDeleted = 'false'
+     LEFT JOIN [SFDC].[ServiceTerritory] Territory WITH(NOLOCK) ON Region.ParentTerritoryId = Territory.Id
+                                                                   AND Region.IsDeleted = 'false'
+     LEFT JOIN [SFDC].[ServiceTerritoryMember] TerritoryMember ON Territory.Id = TerritoryMember.[ServiceTerritoryId]
+                                                                  AND TerritoryMember.IsDeleted = 'false'
+     LEFT JOIN [SFDC].[ServiceResource] TerritoryResource ON TerritoryMember.[ServiceResourceId] = TerritoryResource.Id
+     LEFT JOIN
+(
+    SELECT Enterprise_Account_Number__c, 
+           [ERP_Account_Number__c]
+    FROM [SFDC].[Account_Cross_Reference__c]
+    WHERE Source_ERP_System__c = 'TAHITI'
+) ERP ON ERP.ERP_Account_Number__c = Cust.MDMCustomer_ID
+WHERE Cust.Country IN('CA', 'US') --US and Canada country codes only
+     AND Cust.[State] NOT IN('PR', 'GU', 'AS', 'MP', 'VI'); -- exclude US Territories</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - Query.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[Customer_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[Customer_ID]"
+                      length="60"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[Customer_ID]"
+                      name="Customer_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MDMCustomer_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[MDMCustomer_ID]"
+                      length="60"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MDMCustomer_ID]"
+                      name="MDMCustomer_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[Enterprise_Account_Number__c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[Enterprise_Account_Number__c]"
+                      length="10"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[Enterprise_Account_Number__c]"
+                      name="Enterprise_Account_Number__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[FSMEmployeeID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[FSMEmployeeID]"
+                      length="100"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[FSMEmployeeID]"
+                      name="FSMEmployeeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ZipCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ZipCode]"
+                      length="10"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ZipCode]"
+                      name="ZipCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[Country]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                      length="3"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[Country]"
+                      name="Country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="80"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[RegionId]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[RegionId]"
+                      length="18"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[RegionId]"
+                      name="RegionId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[RegionName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[RegionName]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[RegionName]"
+                      name="RegionName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[TerritoryId]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[TerritoryId]"
+                      length="18"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[TerritoryId]"
+                      name="TerritoryId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[TerritoryName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[TerritoryName]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[TerritoryName]"
+                      name="TerritoryName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[FSMResourceID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[FSMResourceID]"
+                      length="18"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[FSMResourceID]"
+                      name="FSMResourceID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[FSMName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[FSMName]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[FSMName]"
+                      name="FSMName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[Customer_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="Customer_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[MDMCustomer_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="MDMCustomer_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[Enterprise_Account_Number__c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Enterprise_Account_Number__c" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[FSMEmployeeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="FSMEmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ZipCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ZipCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[RegionId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="RegionId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[RegionName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="RegionName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[TerritoryId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="TerritoryId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[TerritoryName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="TerritoryName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[FSMResourceID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="FSMResourceID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[FSMName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="FSMName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[Customer_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[Customer_ID]"
+                      name="Customer_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[MDMCustomer_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[MDMCustomer_ID]"
+                      name="MDMCustomer_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[Enterprise_Account_Number__c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[Enterprise_Account_Number__c]"
+                      name="Enterprise_Account_Number__c" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[FSMEmployeeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[FSMEmployeeID]"
+                      name="FSMEmployeeID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ZipCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ZipCode]"
+                      name="ZipCode" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[Country]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[Country]"
+                      name="Country" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[RegionId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[RegionId]"
+                      name="RegionId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[RegionName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[RegionName]"
+                      name="RegionName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[TerritoryId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[TerritoryId]"
+                      name="TerritoryId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[TerritoryName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[TerritoryName]"
+                      name="TerritoryName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[FSMResourceID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[FSMResourceID]"
+                      name="FSMResourceID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[FSMName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[FSMName]"
+                      name="FSMName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Preparation SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{1D60019F-7659-45AA-BB0A-C98CDC0C882E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Preparation SQL Task 1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E2C342C6-DEEC-477F-8352-689ED4EF1924}"
+          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[FSDimCustTerritoryMDM] (&#xA;[Customer_ID] varchar(60) NOT NULL,&#xA;[MDMCustomer_ID] varchar(60) NOT NULL,&#xA;[Enterprise_Account_Number__c] varchar(10),&#xA;[FSMEmployeeID] varchar(100),&#xA;[ZipCode] varchar(10),&#xA;[Country] varchar(3),&#xA;[Name] varchar(80),&#xA;[RegionId] varchar(18),&#xA;[RegionName] varchar(255),&#xA;[TerritoryId] varchar(18),&#xA;[TerritoryName] varchar(255),&#xA;[FSMResourceID] varchar(18),&#xA;[FSMName] varchar(255)&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{33108326-B606-43C0-AE56-83256FD54E6D\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{390D2023-1D98-44B0-B919-CDD4E5B32B1B}"
+      DTS:From="Package\Preparation SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{390D2023-1D98-44B0-B919-CDD4E5B32B1B}"
+      DTS:To="Package\Data Flow Task 1" />
+  </DTS:PrecedenceConstraints>
+</DTS:Executable>
