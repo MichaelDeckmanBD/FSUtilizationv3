@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="7/29/2020 3:16:04 PM"
@@ -12,7 +12,8 @@
   DTS:LocaleID="1033"
   DTS:MaxErrorCount="0"
   DTS:ObjectName="FSDimCustTerritoryMDM"
-  DTS:VersionGUID="{55280609-C33B-4967-9705-824E8EF76C83}">
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{DDDECCDF-139E-454F-887C-AB338126F440}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -240,92 +241,79 @@
                       codePage="1252"
                       dataType="str"
                       length="60"
-                      name="Customer_ID"
-                      scale="255" />
+                      name="Customer_ID" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[MDMCustomer_ID]"
                       codePage="1252"
                       dataType="str"
                       length="60"
-                      name="MDMCustomer_ID"
-                      scale="255" />
+                      name="MDMCustomer_ID" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[Enterprise_Account_Number__c]"
                       codePage="1252"
                       dataType="str"
                       length="10"
-                      name="Enterprise_Account_Number__c"
-                      scale="255" />
+                      name="Enterprise_Account_Number__c" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[FSMEmployeeID]"
                       codePage="1252"
                       dataType="str"
                       length="100"
-                      name="FSMEmployeeID"
-                      scale="255" />
+                      name="FSMEmployeeID" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[ZipCode]"
                       codePage="1252"
                       dataType="str"
                       length="10"
-                      name="ZipCode"
-                      scale="255" />
+                      name="ZipCode" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[Country]"
                       codePage="1252"
                       dataType="str"
                       length="3"
-                      name="Country"
-                      scale="255" />
+                      name="Country" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[Name]"
                       codePage="1252"
                       dataType="str"
                       length="80"
-                      name="Name"
-                      scale="255" />
+                      name="Name" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[RegionId]"
                       codePage="1252"
                       dataType="str"
                       length="18"
-                      name="RegionId"
-                      scale="255" />
+                      name="RegionId" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[RegionName]"
                       codePage="1252"
                       dataType="str"
                       length="255"
-                      name="RegionName"
-                      scale="255" />
+                      name="RegionName" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[TerritoryId]"
                       codePage="1252"
                       dataType="str"
                       length="18"
-                      name="TerritoryId"
-                      scale="255" />
+                      name="TerritoryId" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[TerritoryName]"
                       codePage="1252"
                       dataType="str"
                       length="255"
-                      name="TerritoryName"
-                      scale="255" />
+                      name="TerritoryName" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[FSMResourceID]"
                       codePage="1252"
                       dataType="str"
                       length="18"
-                      name="FSMResourceID"
-                      scale="255" />
+                      name="FSMResourceID" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Inputs[Destination Input].ExternalColumns[FSMName]"
                       codePage="1252"
                       dataType="str"
                       length="255"
-                      name="FSMName"
-                      scale="255" />
+                      name="FSMName" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -819,13 +807,13 @@ WHERE Cust.Country IN('CA', 'US') --US and Canada country codes only
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{E2C342C6-DEEC-477F-8352-689ED4EF1924}"
-          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[FSDimCustTerritoryMDM] (&#xA;[Customer_ID] varchar(60) NOT NULL,&#xA;[MDMCustomer_ID] varchar(60) NOT NULL,&#xA;[Enterprise_Account_Number__c] varchar(10),&#xA;[FSMEmployeeID] varchar(100),&#xA;[ZipCode] varchar(10),&#xA;[Country] varchar(3),&#xA;[Name] varchar(80),&#xA;[RegionId] varchar(18),&#xA;[RegionName] varchar(255),&#xA;[TerritoryId] varchar(18),&#xA;[TerritoryName] varchar(255),&#xA;[FSMResourceID] varchar(18),&#xA;[FSMName] varchar(255)&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[FSDimCustTerritoryMDM]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[{33108326-B606-43C0-AE56-83256FD54E6D\}]"
+      DTS:refId="Package.PrecedenceConstraints[{390D2023-1D98-44B0-B919-CDD4E5B32B1B\}]"
       DTS:CreationName=""
       DTS:DTSID="{390D2023-1D98-44B0-B919-CDD4E5B32B1B}"
       DTS:From="Package\Preparation SQL Task 1"
@@ -833,4 +821,101 @@ WHERE Cust.Country IN('CA', 'US') --US and Canada country codes only
       DTS:ObjectName="{390D2023-1D98-44B0-B919-CDD4E5B32B1B}"
       DTS:To="Package\Data Flow Task 1" />
   </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="160,41.7777777777778"
+          Id="Package\Data Flow Task 1"
+          TopLeft="20.1666666666667,106.381226024157" />
+        <NodeLayout
+          Size="189.333333333334,41.7777777777778"
+          Id="Package\Preparation SQL Task 1"
+          TopLeft="5.50000000000001,5.50000000000002" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[{390D2023-1D98-44B0-B919-CDD4E5B32B1B\}]"
+          TopLeft="100.166666666667,47.2777777777778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.1034482463787"
+              Start="0,0"
+              End="0,51.6034482463787">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.6034482463787" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.333333333334,41.7777777777778"
+          Id="Package\Data Flow Task 1\Source - Query"
+          TopLeft="59.2777777777778,5.50000000000002" />
+        <NodeLayout
+          Size="256.888888888889,41.7777777777778"
+          Id="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM"
+          TopLeft="5.50000000000003,107.277777777778" />
+        <EdgeLayout
+          Id="Package\Data Flow Task 1.Paths[OLE DB Source Output]"
+          TopLeft="133.944444444444,47.2777777777778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="77"
-  DTS:VersionGUID="{7F5D0FD2-B5B4-448F-9E3A-F4528E774C2A}">
+  DTS:VersionBuild="78"
+  DTS:VersionGUID="{D82BDEF6-EFE0-47EF-ABDD-A42819805EB4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -37,7 +37,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQE4Jz2WrO0yh6Y46eaTg6gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAJoYKQDA2fPQ9Cx7TdEWnTAAAAAASAAACgAAAAEAAAALZIa8gUi1wFAo0bD5TKn9UYAAAAs38+iRZT38E/wQo02NFASPhNK7GCwDYnFAAAAGUGsQ6ffgh2MO6YLVEhCYkSCcSB</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQE4Jz2WrO0yh6Y46eaTg6gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACijbpDYoYCw2sBzsCcTvYxAAAAAASAAACgAAAAEAAAAM9MVOOfcoLXr3GL/t86fHoYAAAAOqGR5JGHuIIPfKuP9rUoiF4dAExEh9PeFAAAAOuwSYSLWQrf7+jz0Qz5u/97gCDK</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -2288,7 +2288,7 @@ FROM [dbo].[FSDimGeographyStage];</property>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="CleanUpNulls"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2304,7 +2304,7 @@ FROM [dbo].[FSDimGeographyStage];</property>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="SetGeographyKey"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -11277,44 +11277,6 @@ SELECT * FROM WOCatCode</property>
                       name="ServiceOrderDesc"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[ServiceOrderCreateDate]"
-                      dataType="dbTimeStamp2"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ServiceOrderCreateDate]"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[ServiceOrderCreateDate]"
-                      name="ServiceOrderCreateDate"
-                      scale="7"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[ServiceOrderCreateDateMin]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ServiceOrderCreateDateMin]"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[ServiceOrderCreateDateMin]"
-                      name="ServiceOrderCreateDateMin"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[ServiceOrderClosedDate]"
-                      dataType="dbTimeStamp2"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ServiceOrderClosedDate]"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[ServiceOrderClosedDate]"
-                      name="ServiceOrderClosedDate"
-                      scale="7"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[ServiceOrderClosedDateMin]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ServiceOrderClosedDateMin]"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[ServiceOrderClosedDateMin]"
-                      name="ServiceOrderClosedDateMin"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClosedDateYear-Month]"
                       codePage="1252"
                       dataType="str"
@@ -11379,63 +11341,6 @@ SELECT * FROM WOCatCode</property>
                       length="255"
                       lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostponeReason]"
                       name="PostponeReason"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstReponseByDate]"
-                      dataType="dbTimeStamp2"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstReponseByDate]"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstReponseByDate]"
-                      name="FirstReponseByDate"
-                      scale="7"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstReponseByDateMin]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstReponseByDateMin]"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstReponseByDateMin]"
-                      name="FirstReponseByDateMin"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[GRTDueDate]"
-                      dataType="dbTimeStamp2"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GRTDueDate]"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[GRTDueDate]"
-                      name="GRTDueDate"
-                      scale="7"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[GRTDueDateMin]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GRTDueDateMin]"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[GRTDueDateMin]"
-                      name="GRTDueDateMin"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstOnsiteTime]"
-                      dataType="dbTimeStamp2"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstOnsiteTime]"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstOnsiteTime]"
-                      name="FirstOnsiteTime"
-                      scale="7"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstOnsiteTimeMin]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstOnsiteTimeMin]"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstOnsiteTimeMin]"
-                      name="FirstOnsiteTimeMin"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[ResponseMinutes]"
@@ -11756,16 +11661,6 @@ SELECT * FROM WOCatCode</property>
                       length="30"
                       lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[ServiceCase]"
                       name="ServiceCase"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[CaseStartDate]"
-                      dataType="dbTimeStamp2"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CaseStartDate]"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[CaseStartDate]"
-                      name="CaseStartDate"
-                      scale="7"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[CaseStartDateMin]"
@@ -12282,24 +12177,6 @@ SELECT * FROM WOCatCode</property>
                       length="255"
                       name="ServiceOrderDesc" />
                     <externalMetadataColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ServiceOrderCreateDate]"
-                      dataType="dbTimeStamp2"
-                      name="ServiceOrderCreateDate"
-                      scale="7" />
-                    <externalMetadataColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ServiceOrderCreateDateMin]"
-                      dataType="dbTimeStamp"
-                      name="ServiceOrderCreateDateMin" />
-                    <externalMetadataColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ServiceOrderClosedDate]"
-                      dataType="dbTimeStamp2"
-                      name="ServiceOrderClosedDate"
-                      scale="7" />
-                    <externalMetadataColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ServiceOrderClosedDateMin]"
-                      dataType="dbTimeStamp"
-                      name="ServiceOrderClosedDateMin" />
-                    <externalMetadataColumn
                       refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ClosedDateYear-Month]"
                       codePage="1252"
                       dataType="str"
@@ -12335,33 +12212,6 @@ SELECT * FROM WOCatCode</property>
                       dataType="str"
                       length="255"
                       name="PostponeReason" />
-                    <externalMetadataColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstReponseByDate]"
-                      dataType="dbTimeStamp2"
-                      name="FirstReponseByDate"
-                      scale="7" />
-                    <externalMetadataColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstReponseByDateMin]"
-                      dataType="dbTimeStamp"
-                      name="FirstReponseByDateMin" />
-                    <externalMetadataColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GRTDueDate]"
-                      dataType="dbTimeStamp2"
-                      name="GRTDueDate"
-                      scale="7" />
-                    <externalMetadataColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GRTDueDateMin]"
-                      dataType="dbTimeStamp"
-                      name="GRTDueDateMin" />
-                    <externalMetadataColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstOnsiteTime]"
-                      dataType="dbTimeStamp2"
-                      name="FirstOnsiteTime"
-                      scale="7" />
-                    <externalMetadataColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstOnsiteTimeMin]"
-                      dataType="dbTimeStamp"
-                      name="FirstOnsiteTimeMin" />
                     <externalMetadataColumn
                       refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ResponseMinutes]"
                       dataType="i4"
@@ -12532,11 +12382,6 @@ SELECT * FROM WOCatCode</property>
                       dataType="str"
                       length="30"
                       name="ServiceCase" />
-                    <externalMetadataColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CaseStartDate]"
-                      dataType="dbTimeStamp2"
-                      name="CaseStartDate"
-                      scale="7" />
                     <externalMetadataColumn
                       refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CaseStartDateMin]"
                       dataType="dbTimeStamp"
@@ -12883,28 +12728,6 @@ SELECT * FROM WOCatCode</property>
                       lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ServiceOrderDesc]"
                       name="ServiceOrderDesc" />
                     <outputColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ServiceOrderCreateDate]"
-                      dataType="dbTimeStamp2"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ServiceOrderCreateDate]"
-                      name="ServiceOrderCreateDate"
-                      scale="7" />
-                    <outputColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ServiceOrderCreateDateMin]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ServiceOrderCreateDateMin]"
-                      name="ServiceOrderCreateDateMin" />
-                    <outputColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ServiceOrderClosedDate]"
-                      dataType="dbTimeStamp2"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ServiceOrderClosedDate]"
-                      name="ServiceOrderClosedDate"
-                      scale="7" />
-                    <outputColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ServiceOrderClosedDateMin]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ServiceOrderClosedDateMin]"
-                      name="ServiceOrderClosedDateMin" />
-                    <outputColumn
                       refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ClosedDateYear-Month]"
                       codePage="1252"
                       dataType="str"
@@ -12946,39 +12769,6 @@ SELECT * FROM WOCatCode</property>
                       length="255"
                       lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostponeReason]"
                       name="PostponeReason" />
-                    <outputColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstReponseByDate]"
-                      dataType="dbTimeStamp2"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstReponseByDate]"
-                      name="FirstReponseByDate"
-                      scale="7" />
-                    <outputColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstReponseByDateMin]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstReponseByDateMin]"
-                      name="FirstReponseByDateMin" />
-                    <outputColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GRTDueDate]"
-                      dataType="dbTimeStamp2"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GRTDueDate]"
-                      name="GRTDueDate"
-                      scale="7" />
-                    <outputColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GRTDueDateMin]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GRTDueDateMin]"
-                      name="GRTDueDateMin" />
-                    <outputColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstOnsiteTime]"
-                      dataType="dbTimeStamp2"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstOnsiteTime]"
-                      name="FirstOnsiteTime"
-                      scale="7" />
-                    <outputColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstOnsiteTimeMin]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstOnsiteTimeMin]"
-                      name="FirstOnsiteTimeMin" />
                     <outputColumn
                       refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ResponseMinutes]"
                       dataType="i4"
@@ -13179,12 +12969,6 @@ SELECT * FROM WOCatCode</property>
                       length="30"
                       lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ServiceCase]"
                       name="ServiceCase" />
-                    <outputColumn
-                      refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CaseStartDate]"
-                      dataType="dbTimeStamp2"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CaseStartDate]"
-                      name="CaseStartDate"
-                      scale="7" />
                     <outputColumn
                       refId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CaseStartDateMin]"
                       dataType="dbTimeStamp"
@@ -14004,80 +13788,6 @@ SELECT * FROM WOCatCode</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\WBSUnpivot\Unpivot.Inputs[Unpivot Input].Columns[ServiceOrderCreateDate]"
-                      cachedDataType="dbTimeStamp2"
-                      cachedName="ServiceOrderCreateDate"
-                      cachedScale="7"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[ServiceOrderCreateDate]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
-                          name="DestinationColumn">#{Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[ServiceOrderCreateDate]}</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the value written to the PivotKey column in the output row."
-                          expressionType="Notify"
-                          name="PivotKeyValue" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\WBSUnpivot\Unpivot.Inputs[Unpivot Input].Columns[ServiceOrderCreateDateMin]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="ServiceOrderCreateDateMin"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[ServiceOrderCreateDateMin]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
-                          name="DestinationColumn">#{Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[ServiceOrderCreateDateMin]}</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the value written to the PivotKey column in the output row."
-                          expressionType="Notify"
-                          name="PivotKeyValue" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\WBSUnpivot\Unpivot.Inputs[Unpivot Input].Columns[ServiceOrderClosedDate]"
-                      cachedDataType="dbTimeStamp2"
-                      cachedName="ServiceOrderClosedDate"
-                      cachedScale="7"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[ServiceOrderClosedDate]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
-                          name="DestinationColumn">#{Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[ServiceOrderClosedDate]}</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the value written to the PivotKey column in the output row."
-                          expressionType="Notify"
-                          name="PivotKeyValue" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\WBSUnpivot\Unpivot.Inputs[Unpivot Input].Columns[ServiceOrderClosedDateMin]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="ServiceOrderClosedDateMin"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[ServiceOrderClosedDateMin]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
-                          name="DestinationColumn">#{Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[ServiceOrderClosedDateMin]}</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the value written to the PivotKey column in the output row."
-                          expressionType="Notify"
-                          name="PivotKeyValue" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\WBSUnpivot\Unpivot.Inputs[Unpivot Input].Columns[ClosedDateYear-Month]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -14190,117 +13900,6 @@ SELECT * FROM WOCatCode</property>
                           dataType="System.Int32"
                           description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
                           name="DestinationColumn">#{Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[PostponeReason]}</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the value written to the PivotKey column in the output row."
-                          expressionType="Notify"
-                          name="PivotKeyValue" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\WBSUnpivot\Unpivot.Inputs[Unpivot Input].Columns[FirstReponseByDate]"
-                      cachedDataType="dbTimeStamp2"
-                      cachedName="FirstReponseByDate"
-                      cachedScale="7"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstReponseByDate]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
-                          name="DestinationColumn">#{Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[FirstReponseByDate]}</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the value written to the PivotKey column in the output row."
-                          expressionType="Notify"
-                          name="PivotKeyValue" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\WBSUnpivot\Unpivot.Inputs[Unpivot Input].Columns[FirstReponseByDateMin]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="FirstReponseByDateMin"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstReponseByDateMin]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
-                          name="DestinationColumn">#{Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[FirstReponseByDateMin]}</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the value written to the PivotKey column in the output row."
-                          expressionType="Notify"
-                          name="PivotKeyValue" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\WBSUnpivot\Unpivot.Inputs[Unpivot Input].Columns[GRTDueDate]"
-                      cachedDataType="dbTimeStamp2"
-                      cachedName="GRTDueDate"
-                      cachedScale="7"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[GRTDueDate]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
-                          name="DestinationColumn">#{Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[GRTDueDate]}</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the value written to the PivotKey column in the output row."
-                          expressionType="Notify"
-                          name="PivotKeyValue" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\WBSUnpivot\Unpivot.Inputs[Unpivot Input].Columns[GRTDueDateMin]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="GRTDueDateMin"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[GRTDueDateMin]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
-                          name="DestinationColumn">#{Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[GRTDueDateMin]}</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the value written to the PivotKey column in the output row."
-                          expressionType="Notify"
-                          name="PivotKeyValue" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\WBSUnpivot\Unpivot.Inputs[Unpivot Input].Columns[FirstOnsiteTime]"
-                      cachedDataType="dbTimeStamp2"
-                      cachedName="FirstOnsiteTime"
-                      cachedScale="7"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstOnsiteTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
-                          name="DestinationColumn">#{Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[FirstOnsiteTime]}</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the value written to the PivotKey column in the output row."
-                          expressionType="Notify"
-                          name="PivotKeyValue" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\WBSUnpivot\Unpivot.Inputs[Unpivot Input].Columns[FirstOnsiteTimeMin]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="FirstOnsiteTimeMin"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstOnsiteTimeMin]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
-                          name="DestinationColumn">#{Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[FirstOnsiteTimeMin]}</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the value written to the PivotKey column in the output row."
@@ -14801,25 +14400,6 @@ SELECT * FROM WOCatCode</property>
                           dataType="System.Int32"
                           description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
                           name="DestinationColumn">#{Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[ServiceCase]}</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the value written to the PivotKey column in the output row."
-                          expressionType="Notify"
-                          name="PivotKeyValue" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\WBSUnpivot\Unpivot.Inputs[Unpivot Input].Columns[CaseStartDate]"
-                      cachedDataType="dbTimeStamp2"
-                      cachedName="CaseStartDate"
-                      cachedScale="7"
-                      lineageId="Package\WBSUnpivot\OLE DB Source.Outputs[OLE DB Source Output].Columns[CaseStartDate]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
-                          name="DestinationColumn">#{Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[CaseStartDate]}</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the value written to the PivotKey column in the output row."
@@ -15864,56 +15444,6 @@ SELECT * FROM WOCatCode</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[ServiceOrderCreateDate]"
-                      dataType="dbTimeStamp2"
-                      lineageId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[ServiceOrderCreateDate]"
-                      name="ServiceOrderCreateDate"
-                      scale="7">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
-                          name="PivotKey">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[ServiceOrderCreateDateMin]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[ServiceOrderCreateDateMin]"
-                      name="ServiceOrderCreateDateMin">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
-                          name="PivotKey">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[ServiceOrderClosedDate]"
-                      dataType="dbTimeStamp2"
-                      lineageId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[ServiceOrderClosedDate]"
-                      name="ServiceOrderClosedDate"
-                      scale="7">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
-                          name="PivotKey">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[ServiceOrderClosedDateMin]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[ServiceOrderClosedDateMin]"
-                      name="ServiceOrderClosedDateMin">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
-                          name="PivotKey">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[ClosedDateYear-Month]"
                       codePage="1252"
                       dataType="str"
@@ -15990,81 +15520,6 @@ SELECT * FROM WOCatCode</property>
                       length="255"
                       lineageId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[PostponeReason]"
                       name="PostponeReason">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
-                          name="PivotKey">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[FirstReponseByDate]"
-                      dataType="dbTimeStamp2"
-                      lineageId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[FirstReponseByDate]"
-                      name="FirstReponseByDate"
-                      scale="7">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
-                          name="PivotKey">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[FirstReponseByDateMin]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[FirstReponseByDateMin]"
-                      name="FirstReponseByDateMin">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
-                          name="PivotKey">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[GRTDueDate]"
-                      dataType="dbTimeStamp2"
-                      lineageId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[GRTDueDate]"
-                      name="GRTDueDate"
-                      scale="7">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
-                          name="PivotKey">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[GRTDueDateMin]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[GRTDueDateMin]"
-                      name="GRTDueDateMin">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
-                          name="PivotKey">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[FirstOnsiteTime]"
-                      dataType="dbTimeStamp2"
-                      lineageId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[FirstOnsiteTime]"
-                      name="FirstOnsiteTime"
-                      scale="7">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
-                          name="PivotKey">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[FirstOnsiteTimeMin]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[FirstOnsiteTimeMin]"
-                      name="FirstOnsiteTimeMin">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -16415,19 +15870,6 @@ SELECT * FROM WOCatCode</property>
                       length="30"
                       lineageId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[ServiceCase]"
                       name="ServiceCase">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
-                          name="PivotKey">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[CaseStartDate]"
-                      dataType="dbTimeStamp2"
-                      lineageId="Package\WBSUnpivot\Unpivot.Outputs[Unpivot Output].Columns[CaseStartDate]"
-                      name="CaseStartDate"
-                      scale="7">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -17725,7 +17167,7 @@ SELECT * FROM WOCatCode</property>
     design-time-name="Package\ODS Extract\All GCS Employee">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="149.777777777778,41.7777777777778"
           Id="Package\ODS Extract\All GCS Employee\OLE DB Source"
@@ -17753,7 +17195,9 @@ SELECT * FROM WOCatCode</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17784,7 +17228,7 @@ SELECT * FROM WOCatCode</property>
     design-time-name="Package\ODS Extract\Employee">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="149.777777777778,41.7777777777778"
           Id="Package\ODS Extract\Employee\OLE DB Source"
@@ -17812,7 +17256,9 @@ SELECT * FROM WOCatCode</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17843,15 +17289,15 @@ SELECT * FROM WOCatCode</property>
     design-time-name="Package\ODS Extract\Hours Worked">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="155.111111111112,41.7777777777778"
-          Id="Package\ODS Extract\Hours Worked\Employee Hours"
-          TopLeft="513.833333333333,169.666666666667" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="182.666666666667,41.7777777777778"
           Id="Package\ODS Extract\Hours Worked\Local Employee Hours"
           TopLeft="494.166666666667,318.333333333333" />
+        <NodeLayout
+          Size="155.111111111112,41.7777777777778"
+          Id="Package\ODS Extract\Hours Worked\Employee Hours"
+          TopLeft="513.833333333333,169.666666666667" />
         <EdgeLayout
           Id="Package\ODS Extract\Hours Worked.Paths[OLE DB Source Output]"
           TopLeft="588.444444444444,211.444444444444">
@@ -17871,7 +17317,9 @@ SELECT * FROM WOCatCode</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17902,7 +17350,7 @@ SELECT * FROM WOCatCode</property>
     design-time-name="Package\ODS Extract\OdsToCx">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="142.666666666667,41.7777777777778"
           Id="Package\ODS Extract\OdsToCx\OpsUtilization"
@@ -17930,7 +17378,9 @@ SELECT * FROM WOCatCode</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17940,7 +17390,7 @@ SELECT * FROM WOCatCode</property>
     design-time-name="Package\ODS Extract\OdsToCx.EventHandlers[OnPostExecute]">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="172,41.7777777777778"
           Id="Package\ODS Extract\OdsToCx.EventHandlers[OnPostExecute]\DirectorRegion"
@@ -17992,7 +17442,9 @@ SELECT * FROM WOCatCode</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18014,7 +17466,9 @@ SELECT * FROM WOCatCode</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18036,7 +17490,9 @@ SELECT * FROM WOCatCode</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18058,7 +17514,9 @@ SELECT * FROM WOCatCode</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18080,7 +17538,9 @@ SELECT * FROM WOCatCode</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18102,7 +17562,9 @@ SELECT * FROM WOCatCode</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18124,7 +17586,9 @@ SELECT * FROM WOCatCode</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -18155,7 +17619,7 @@ SELECT * FROM WOCatCode</property>
     design-time-name="Package\ODS Extract\Utilization">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="131.111111111112,41.7777777777778"
           Id="Package\ODS Extract\Utilization\ODS Utilize"
@@ -18183,7 +17647,9 @@ SELECT * FROM WOCatCode</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -18254,7 +17720,7 @@ SELECT * FROM WOCatCode</property>
     design-time-name="Package\WBSUnpivot">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="149.777777777778,41.7777777777778"
           Id="Package\WBSUnpivot\OLE DB Source"
@@ -18298,9 +17764,7 @@ SELECT * FROM WOCatCode</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18334,9 +17798,7 @@ SELECT * FROM WOCatCode</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
