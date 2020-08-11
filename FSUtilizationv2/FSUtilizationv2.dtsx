@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="78"
-  DTS:VersionGUID="{D82BDEF6-EFE0-47EF-ABDD-A42819805EB4}">
+  DTS:VersionBuild="80"
+  DTS:VersionGUID="{6AD230F5-12FD-4C1A-97C9-A495D343BE2C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -37,7 +37,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQE4Jz2WrO0yh6Y46eaTg6gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACijbpDYoYCw2sBzsCcTvYxAAAAAASAAACgAAAAEAAAAM9MVOOfcoLXr3GL/t86fHoYAAAAOqGR5JGHuIIPfKuP9rUoiF4dAExEh9PeFAAAAOuwSYSLWQrf7+jz0Qz5u/97gCDK</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQE4Jz2WrO0yh6Y46eaTg6gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD29iREH+qQxMkbT+76BfSQAAAAAASAAACgAAAAEAAAABg3Zi5nbLjZk46RwmVmWmgYAAAAZ6FGLY/GCmrfKdinkLcTuq5Pp2SCCCegFAAAAFz5hJxs44oI+z1z2InOLDibGJEg</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -2288,7 +2288,7 @@ FROM [dbo].[FSDimGeographyStage];</property>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="CleanUpNulls"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2304,7 +2304,7 @@ FROM [dbo].[FSDimGeographyStage];</property>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="SetGeographyKey"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -16601,9 +16601,9 @@ SELECT * FROM WOCatCode</property>
           TopLeft="218.555546482404,64.6858298136264" />
         <ContainerLayout
           HeaderHeight="43.111111111111114"
-          IsExpanded="False"
+          IsExpanded="True"
           PanelSize="472.444444444445,261.777777777778"
-          Size="326.666666666667,43.1111111111112"
+          Size="472.444444444445,304.888888888889"
           Id="Package\ODS Extract"
           TopLeft="18.3333326048318,158.455943871653" />
         <NodeLayout
@@ -16624,18 +16624,30 @@ SELECT * FROM WOCatCode</property>
           TopLeft="825.444414575897,69.0344850288416" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="179.532407101106,111.829504038513">
+          TopLeft="177.398148264047,111.829504038513">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,46.62643983314"
+              EndConnector="77.1574065630072,46.62643983314"
               Start="0,0"
-              End="0,39.12643983314">
+              End="77.1574065630072,39.12643983314">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.12643983314" />
+                    End="0,19.31321991657" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.31321991657"
+                    Point2="0,23.31321991657"
+                    Point3="4,23.31321991657" />
+                  <mssgle:LineSegment
+                    End="73.1574065630072,23.31321991657" />
+                  <mssgle:CubicBezierSegment
+                    Point1="73.1574065630072,23.31321991657"
+                    Point2="77.1574065630072,23.31321991657"
+                    Point3="77.1574065630072,27.31321991657" />
+                  <mssgle:LineSegment
+                    End="77.1574065630072,39.12643983314" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16646,18 +16658,30 @@ SELECT * FROM WOCatCode</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="180.782407051435,201.567054982764">
+          TopLeft="254.555554827054,463.344832760542">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,44.0593827128309"
+              EndConnector="-74.6574066623487,-217.718395064947"
               Start="0,0"
-              End="0,36.5593827128309">
+              End="-74.6574066623487,-210.218395064947">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.5593827128309" />
+                    End="0,-104.859197532473" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-104.859197532473"
+                    Point2="0,-108.859197532473"
+                    Point3="-4,-108.859197532473" />
+                  <mssgle:LineSegment
+                    End="-70.6574066623487,-108.859197532473" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-70.6574066623487,-108.859197532473"
+                    Point2="-74.6574066623487,-108.859197532473"
+                    Point3="-74.6574066623487,-112.859197532473" />
+                  <mssgle:LineSegment
+                    End="-74.6574066623487,-210.218395064947" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -17289,7 +17313,7 @@ SELECT * FROM WOCatCode</property>
     design-time-name="Package\ODS Extract\Hours Worked">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="182.666666666667,41.7777777777778"
           Id="Package\ODS Extract\Hours Worked\Local Employee Hours"
@@ -17317,9 +17341,7 @@ SELECT * FROM WOCatCode</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17350,7 +17372,7 @@ SELECT * FROM WOCatCode</property>
     design-time-name="Package\ODS Extract\OdsToCx">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="142.666666666667,41.7777777777778"
           Id="Package\ODS Extract\OdsToCx\OpsUtilization"
@@ -17365,22 +17387,20 @@ SELECT * FROM WOCatCode</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,109.739468584226"
+              EndConnector="0,109.739468584225"
               Start="0,0"
-              End="0,102.239468584226">
+              End="0,102.239468584225">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,102.239468584226" />
+                    End="0,102.239468584225" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17619,37 +17639,35 @@ SELECT * FROM WOCatCode</property>
     design-time-name="Package\ODS Extract\Utilization">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="131.111111111112,41.7777777777778"
           Id="Package\ODS Extract\Utilization\ODS Utilize"
-          TopLeft="358.307692307692,37.6153846153847" />
+          TopLeft="358.307692307692,38.6153846153847" />
         <NodeLayout
           Size="128.444444444445,41.7777777777778"
           Id="Package\ODS Extract\Utilization\Ops Utilize"
           TopLeft="362.846153846154,197.038461538462" />
         <EdgeLayout
           Id="Package\ODS Extract\Utilization.Paths[OLE DB Source Output]"
-          TopLeft="425.465811965812,79.3931623931624">
+          TopLeft="425.465811965812,80.3931623931625">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,117.645299145299"
+              EndConnector="0,116.6452991453"
               Start="0,0"
-              End="0,110.145299145299">
+              End="0,109.1452991453">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,110.145299145299" />
+                    End="0,109.1452991453" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17720,7 +17738,7 @@ SELECT * FROM WOCatCode</property>
     design-time-name="Package\WBSUnpivot">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="149.777777777778,41.7777777777778"
           Id="Package\WBSUnpivot\OLE DB Source"
@@ -17764,7 +17782,9 @@ SELECT * FROM WOCatCode</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17798,7 +17818,9 @@ SELECT * FROM WOCatCode</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

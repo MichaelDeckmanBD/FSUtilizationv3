@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="7/28/2020 5:31:55 AM"
@@ -12,7 +12,8 @@
   DTS:LocaleID="1033"
   DTS:MaxErrorCount="0"
   DTS:ObjectName="Timesheet"
-  DTS:VersionGUID="{83269CC2-EB2C-460F-9862-E5FC881A1FA2}">
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{EF83C235-990D-4541-8DA6-E183EE2A5409}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -40,14 +41,14 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Data Flow Task 1"
+      DTS:refId="Package\ADP Data"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:DelayValidation="True"
       DTS:DTSID="{B2CA6078-AD44-4334-8C10-1B2E32497FA8}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:FailPackageOnFailure="True"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task 1"
+      DTS:ObjectName="ADP Data"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -56,11 +57,11 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task 1\Destination - TimeSheet"
+              refId="Package\ADP Data\Local - TimeSheet"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Destination - TimeSheet"
+              name="Local - TimeSheet"
               usesDispositions="true"
               validateExternalMetadata="False"
               version="4">
@@ -114,7 +115,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task 1\Destination - TimeSheet.Connections[OleDbConnection]"
+                  refId="Package\ADP Data\Local - TimeSheet.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
                   connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
                   description="The OLE DB runtime connection used to access the database."
@@ -122,94 +123,94 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task 1\Destination - TimeSheet.Inputs[Destination Input]"
+                  refId="Package\ADP Data\Local - TimeSheet.Inputs[Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - TimeSheet.Inputs[Destination Input].Columns[EmployeeID]"
+                      refId="Package\ADP Data\Local - TimeSheet.Inputs[Destination Input].Columns[EmployeeID]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="20"
                       cachedName="EmployeeID"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - TimeSheet.Inputs[Destination Input].ExternalColumns[EmployeeID]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[EmployeeID]" />
+                      externalMetadataColumnId="Package\ADP Data\Local - TimeSheet.Inputs[Destination Input].ExternalColumns[EmployeeID]"
+                      lineageId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].Columns[EmployeeID]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - TimeSheet.Inputs[Destination Input].Columns[RegularHrs]"
+                      refId="Package\ADP Data\Local - TimeSheet.Inputs[Destination Input].Columns[RegularHrs]"
                       cachedDataType="numeric"
                       cachedName="RegularHrs"
                       cachedPrecision="38"
                       cachedScale="2"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - TimeSheet.Inputs[Destination Input].ExternalColumns[RegularHrs]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[RegularHrs]" />
+                      externalMetadataColumnId="Package\ADP Data\Local - TimeSheet.Inputs[Destination Input].ExternalColumns[RegularHrs]"
+                      lineageId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].Columns[RegularHrs]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - TimeSheet.Inputs[Destination Input].Columns[MealTime]"
+                      refId="Package\ADP Data\Local - TimeSheet.Inputs[Destination Input].Columns[MealTime]"
                       cachedDataType="numeric"
                       cachedName="MealTime"
                       cachedPrecision="38"
                       cachedScale="2"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - TimeSheet.Inputs[Destination Input].ExternalColumns[MealTime]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MealTime]" />
+                      externalMetadataColumnId="Package\ADP Data\Local - TimeSheet.Inputs[Destination Input].ExternalColumns[MealTime]"
+                      lineageId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].Columns[MealTime]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - TimeSheet.Inputs[Destination Input].Columns[OvertimeHrs]"
+                      refId="Package\ADP Data\Local - TimeSheet.Inputs[Destination Input].Columns[OvertimeHrs]"
                       cachedDataType="numeric"
                       cachedName="OvertimeHrs"
                       cachedPrecision="38"
                       cachedScale="2"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - TimeSheet.Inputs[Destination Input].ExternalColumns[OvertimeHrs]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[OvertimeHrs]" />
+                      externalMetadataColumnId="Package\ADP Data\Local - TimeSheet.Inputs[Destination Input].ExternalColumns[OvertimeHrs]"
+                      lineageId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].Columns[OvertimeHrs]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - TimeSheet.Inputs[Destination Input].Columns[PTO/Bereavement]"
+                      refId="Package\ADP Data\Local - TimeSheet.Inputs[Destination Input].Columns[PTO/Bereavement]"
                       cachedDataType="numeric"
                       cachedName="PTO/Bereavement"
                       cachedPrecision="38"
                       cachedScale="2"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - TimeSheet.Inputs[Destination Input].ExternalColumns[PTO/Bereavement]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[PTO/Bereavement]" />
+                      externalMetadataColumnId="Package\ADP Data\Local - TimeSheet.Inputs[Destination Input].ExternalColumns[PTO/Bereavement]"
+                      lineageId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].Columns[PTO/Bereavement]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - TimeSheet.Inputs[Destination Input].Columns[PayPeriodStartDate]"
+                      refId="Package\ADP Data\Local - TimeSheet.Inputs[Destination Input].Columns[PayPeriodStartDate]"
                       cachedDataType="dbDate"
                       cachedName="PayPeriodStartDate"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - TimeSheet.Inputs[Destination Input].ExternalColumns[PayPeriodStartDate]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[PayPeriodStartDate]" />
+                      externalMetadataColumnId="Package\ADP Data\Local - TimeSheet.Inputs[Destination Input].ExternalColumns[PayPeriodStartDate]"
+                      lineageId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].Columns[PayPeriodStartDate]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - TimeSheet.Inputs[Destination Input].ExternalColumns[EmployeeID]"
+                      refId="Package\ADP Data\Local - TimeSheet.Inputs[Destination Input].ExternalColumns[EmployeeID]"
                       codePage="1252"
                       dataType="str"
                       length="20"
                       name="EmployeeID"
                       scale="255" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - TimeSheet.Inputs[Destination Input].ExternalColumns[RegularHrs]"
+                      refId="Package\ADP Data\Local - TimeSheet.Inputs[Destination Input].ExternalColumns[RegularHrs]"
                       dataType="numeric"
                       name="RegularHrs"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - TimeSheet.Inputs[Destination Input].ExternalColumns[MealTime]"
+                      refId="Package\ADP Data\Local - TimeSheet.Inputs[Destination Input].ExternalColumns[MealTime]"
                       dataType="numeric"
                       name="MealTime"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - TimeSheet.Inputs[Destination Input].ExternalColumns[OvertimeHrs]"
+                      refId="Package\ADP Data\Local - TimeSheet.Inputs[Destination Input].ExternalColumns[OvertimeHrs]"
                       dataType="numeric"
                       name="OvertimeHrs"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - TimeSheet.Inputs[Destination Input].ExternalColumns[PTO/Bereavement]"
+                      refId="Package\ADP Data\Local - TimeSheet.Inputs[Destination Input].ExternalColumns[PTO/Bereavement]"
                       dataType="numeric"
                       name="PTO/Bereavement"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - TimeSheet.Inputs[Destination Input].ExternalColumns[PayPeriodStartDate]"
+                      refId="Package\ADP Data\Local - TimeSheet.Inputs[Destination Input].ExternalColumns[PayPeriodStartDate]"
                       dataType="dbDate"
                       name="PayPeriodStartDate" />
                   </externalMetadataColumns>
@@ -217,22 +218,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task 1\Destination - TimeSheet.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\ADP Data\Local - TimeSheet.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task 1\Destination - TimeSheet.Inputs[Destination Input]">
+                  synchronousInputId="Package\ADP Data\Local - TimeSheet.Inputs[Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Destination - TimeSheet.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\ADP Data\Local - TimeSheet.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Destination - TimeSheet.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\ADP Data\Local - TimeSheet.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Destination - TimeSheet.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\ADP Data\Local - TimeSheet.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Destination - TimeSheet.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\ADP Data\Local - TimeSheet.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -241,11 +242,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task 1\Source - Query"
+              refId="Package\ADP Data\ODS ADP"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
-              name="Source - Query"
+              name="ODS ADP"
               usesDispositions="true"
               version="7">
               <properties>
@@ -314,7 +315,7 @@ GROUP BY dbo.ADPTimesheets.EmployeeID, CAST(DATEADD(month, DATEDIFF(month, 0, Pa
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task 1\Source - Query.Connections[OleDbConnection]"
+                  refId="Package\ADP Data\ODS ADP.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
                   connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
                   description="The OLE DB runtime connection used to access the database."
@@ -322,167 +323,167 @@ GROUP BY dbo.ADPTimesheets.EmployeeID, CAST(DATEADD(month, DATEDIFF(month, 0, Pa
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output]"
+                  refId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[EmployeeID]"
+                      refId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].Columns[EmployeeID]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[EmployeeID]"
+                      externalMetadataColumnId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].ExternalColumns[EmployeeID]"
                       length="20"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[EmployeeID]"
+                      lineageId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].Columns[EmployeeID]"
                       name="EmployeeID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[RegularHrs]"
+                      refId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].Columns[RegularHrs]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[RegularHrs]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[RegularHrs]"
+                      externalMetadataColumnId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].ExternalColumns[RegularHrs]"
+                      lineageId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].Columns[RegularHrs]"
                       name="RegularHrs"
                       precision="38"
                       scale="2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MealTime]"
+                      refId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].Columns[MealTime]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[MealTime]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MealTime]"
+                      externalMetadataColumnId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].ExternalColumns[MealTime]"
+                      lineageId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].Columns[MealTime]"
                       name="MealTime"
                       precision="38"
                       scale="2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[OvertimeHrs]"
+                      refId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].Columns[OvertimeHrs]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[OvertimeHrs]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[OvertimeHrs]"
+                      externalMetadataColumnId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].ExternalColumns[OvertimeHrs]"
+                      lineageId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].Columns[OvertimeHrs]"
                       name="OvertimeHrs"
                       precision="38"
                       scale="2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[PTO/Bereavement]"
+                      refId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].Columns[PTO/Bereavement]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[PTO/Bereavement]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[PTO/Bereavement]"
+                      externalMetadataColumnId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].ExternalColumns[PTO/Bereavement]"
+                      lineageId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].Columns[PTO/Bereavement]"
                       name="PTO/Bereavement"
                       precision="38"
                       scale="2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[PayPeriodStartDate]"
+                      refId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].Columns[PayPeriodStartDate]"
                       dataType="dbDate"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[PayPeriodStartDate]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[PayPeriodStartDate]"
+                      externalMetadataColumnId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].ExternalColumns[PayPeriodStartDate]"
+                      lineageId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].Columns[PayPeriodStartDate]"
                       name="PayPeriodStartDate"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[EmployeeID]"
+                      refId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].ExternalColumns[EmployeeID]"
                       codePage="1252"
                       dataType="str"
                       length="20"
                       name="EmployeeID" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[RegularHrs]"
+                      refId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].ExternalColumns[RegularHrs]"
                       dataType="numeric"
                       name="RegularHrs"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[MealTime]"
+                      refId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].ExternalColumns[MealTime]"
                       dataType="numeric"
                       name="MealTime"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[OvertimeHrs]"
+                      refId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].ExternalColumns[OvertimeHrs]"
                       dataType="numeric"
                       name="OvertimeHrs"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[PTO/Bereavement]"
+                      refId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].ExternalColumns[PTO/Bereavement]"
                       dataType="numeric"
                       name="PTO/Bereavement"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[PayPeriodStartDate]"
+                      refId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output].ExternalColumns[PayPeriodStartDate]"
                       dataType="dbDate"
                       name="PayPeriodStartDate" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output]"
+                  refId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[EmployeeID]"
+                      refId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Error Output].Columns[EmployeeID]"
                       codePage="1252"
                       dataType="str"
                       length="20"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[EmployeeID]"
+                      lineageId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Error Output].Columns[EmployeeID]"
                       name="EmployeeID" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[RegularHrs]"
+                      refId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Error Output].Columns[RegularHrs]"
                       dataType="numeric"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[RegularHrs]"
+                      lineageId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Error Output].Columns[RegularHrs]"
                       name="RegularHrs"
                       precision="38"
                       scale="2" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[MealTime]"
+                      refId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Error Output].Columns[MealTime]"
                       dataType="numeric"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[MealTime]"
+                      lineageId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Error Output].Columns[MealTime]"
                       name="MealTime"
                       precision="38"
                       scale="2" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[OvertimeHrs]"
+                      refId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Error Output].Columns[OvertimeHrs]"
                       dataType="numeric"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[OvertimeHrs]"
+                      lineageId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Error Output].Columns[OvertimeHrs]"
                       name="OvertimeHrs"
                       precision="38"
                       scale="2" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[PTO/Bereavement]"
+                      refId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Error Output].Columns[PTO/Bereavement]"
                       dataType="numeric"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[PTO/Bereavement]"
+                      lineageId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Error Output].Columns[PTO/Bereavement]"
                       name="PTO/Bereavement"
                       precision="38"
                       scale="2" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[PayPeriodStartDate]"
+                      refId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Error Output].Columns[PayPeriodStartDate]"
                       dataType="dbDate"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[PayPeriodStartDate]"
+                      lineageId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Error Output].Columns[PayPeriodStartDate]"
                       name="PayPeriodStartDate" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -493,10 +494,10 @@ GROUP BY dbo.ADPTimesheets.EmployeeID, CAST(DATEADD(month, DATEDIFF(month, 0, Pa
           </components>
           <paths>
             <path
-              refId="Package\Data Flow Task 1.Paths[OLE DB Source Output]"
-              endId="Package\Data Flow Task 1\Destination - TimeSheet.Inputs[Destination Input]"
+              refId="Package\ADP Data.Paths[OLE DB Source Output]"
+              endId="Package\ADP Data\Local - TimeSheet.Inputs[Destination Input]"
               name="OLE DB Source Output"
-              startId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output]" />
+              startId="Package\ADP Data\ODS ADP.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -504,6 +505,7 @@ GROUP BY dbo.ADPTimesheets.EmployeeID, CAST(DATEADD(month, DATEDIFF(month, 0, Pa
     <DTS:Executable
       DTS:refId="Package\Preparation SQL Task 1"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Disabled="True"
       DTS:DTSID="{84F82A66-54E7-4323-B858-F0DFF69C64AA}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:FailPackageOnFailure="True"
@@ -520,12 +522,108 @@ GROUP BY dbo.ADPTimesheets.EmployeeID, CAST(DATEADD(month, DATEDIFF(month, 0, Pa
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[{6A4E8E55-7817-43A7-99CB-FEA7360289AA\}]"
+      DTS:refId="Package.PrecedenceConstraints[{6E187F48-184C-4187-86F4-F443AF1DBE1B\}]"
       DTS:CreationName=""
       DTS:DTSID="{6E187F48-184C-4187-86F4-F443AF1DBE1B}"
       DTS:From="Package\Preparation SQL Task 1"
       DTS:LogicalAnd="True"
       DTS:ObjectName="{6E187F48-184C-4187-86F4-F443AF1DBE1B}"
-      DTS:To="Package\Data Flow Task 1" />
+      DTS:To="Package\ADP Data" />
   </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="123.555555555556,41.7777777777778"
+          Id="Package\ADP Data"
+          TopLeft="20.1666666666667,107.277777777778" />
+        <NodeLayout
+          Size="189.333333333334,41.7777777777778"
+          Id="Package\Preparation SQL Task 1"
+          TopLeft="5.50000000000001,5.50000000000002" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[{6E187F48-184C-4187-86F4-F443AF1DBE1B\}]"
+          TopLeft="100.166666666667,47.2777777777778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18.2222222222222,60.0000000000001"
+              Start="0,0"
+              End="-18.2222222222222,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-14.2222222222222,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14.2222222222222,30"
+                    Point2="-18.2222222222222,30"
+                    Point3="-18.2222222222222,34" />
+                  <mssgle:LineSegment
+                    End="-18.2222222222222,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ADP Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="122.222222222223,41.7777777777778"
+          Id="Package\ADP Data\ODS ADP"
+          TopLeft="26.8333333333333,5.50000000000002" />
+        <NodeLayout
+          Size="163.111111111112,41.7777777777778"
+          Id="Package\ADP Data\Local - TimeSheet"
+          TopLeft="5.50000000000001,107.277777777778" />
+        <EdgeLayout
+          Id="Package\ADP Data.Paths[OLE DB Source Output]"
+          TopLeft="87.5,47.2777777777778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
