@@ -7,19 +7,19 @@
   DTS:CreatorName="BDX\10286045"
   DTS:DTSID="{65FE52FD-58D8-466E-B743-2E9F0F8AFE90}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="80"
-  DTS:VersionGUID="{6AD230F5-12FD-4C1A-97C9-A495D343BE2C}">
+  DTS:VersionBuild="101"
+  DTS:VersionGUID="{1C543895-9655-4C35-B4CC-62C247468F01}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.Ops]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}"
+      DTS:DTSID="{331633F4-EDD2-4442-B7DD-EF7CB7A984A0}"
       DTS:ObjectName="LocalHost.Ops">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -29,7 +29,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[ODS]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{7F0BC2E6-8894-4448-9E64-1D5FF5AE5C34}"
+      DTS:DTSID="{D78B72BE-2831-4917-9073-F2CA227902A9}"
       DTS:ObjectName="ODS">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -37,7 +37,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQE4Jz2WrO0yh6Y46eaTg6gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD29iREH+qQxMkbT+76BfSQAAAAAASAAACgAAAAEAAAABg3Zi5nbLjZk46RwmVmWmgYAAAAZ6FGLY/GCmrfKdinkLcTuq5Pp2SCCCegFAAAAFz5hJxs44oI+z1z2InOLDibGJEg</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQE4Jz2WrO0yh6Y46eaTg6gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACiuWm+Vve8DFqSAxQGlcPbAAAAAASAAACgAAAAEAAAAI8JZbx/wONBW7iCeRb2/94YAAAAMGc8QdNlBuy8mAIiE/RyB1geCbvYx/mtFAAAANSH2zoo8cMcRe/aoDdergGRgPOq</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -56,7 +56,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}"
+          SQLTask:Connection="{331633F4-EDD2-4442-B7DD-EF7CB7A984A0}"
           SQLTask:SqlStatementSource="USE [Ops];&#xA;&#xA;UPDATE z&#xA;  SET &#xA;      z.Continent = y.Continent, &#xA;      z.CountryLong = y.Country, &#xA;      z.CaptialCity = y.Capital&#xA;FROM FSDimGeographyScrubbedAll z&#xA;     JOIN&#xA;(&#xA;    SELECT x.FS_ID, &#xA;           f.Country, &#xA;           f.Continent, &#xA;           f.Capital&#xA;    FROM FSDimGeographyScrubbedAll x&#xA;         JOIN dbo.FSCountry f ON f.fips = x.Country&#xA;) y ON y.FS_ID = z.FS_ID;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -72,7 +72,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}"
+          SQLTask:Connection="{331633F4-EDD2-4442-B7DD-EF7CB7A984A0}"
           SQLTask:SqlStatementSource="USE [Ops];&#xA;GO&#xA;UPDATE x&#xA;  SET &#xA;      x.[ContingentWorker] = 1&#xA;FROM [dbo].[FSExtractBase] x&#xA;     JOIN FSDimContingentWorker y ON y.EmployeeID = x.ConfExecEmployeeID;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -88,7 +88,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}"
+          SQLTask:Connection="{331633F4-EDD2-4442-B7DD-EF7CB7A984A0}"
           SQLTask:SqlStatementSource="exec uspNonContigentZip" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -103,7 +103,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}"
+          SQLTask:Connection="{331633F4-EDD2-4442-B7DD-EF7CB7A984A0}"
           SQLTask:SqlStatementSource="DELETE FSExtractBase &#xA;FROM FSExtractBase&#xA;JOIN (SELECT DISTINCT &#xA;       x.[ServiceOrderID], &#xA;       x.FS_ID&#xA;FROM [dbo].[vFSExtractBaseRolling] x&#xA;WHERE SO &gt; 1) z ON dbo.FSExtractBase.FS_ID = z.FS_ID" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -631,6 +631,7 @@
                           name="CopyFromReferenceColumn"
                           state="escaped">city_upper</property>
                         <property
+                          containsID="true"
                           dataType="System.Null"
                           description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
                           name="SourceInputColumnLineageID" />
@@ -1716,6 +1717,7 @@ FROM [dbo].[FSDimGeographyStageAll];</property>
                           name="CopyFromReferenceColumn"
                           state="escaped">city_upper</property>
                         <property
+                          containsID="true"
                           dataType="System.Null"
                           description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
                           name="SourceInputColumnLineageID" />
@@ -2288,11 +2290,11 @@ FROM [dbo].[FSDimGeographyStage];</property>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="CleanUpNulls"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}"
+              SQLTask:Connection="{331633F4-EDD2-4442-B7DD-EF7CB7A984A0}"
               SQLTask:SqlStatementSource="UPDATE [dbo].[FSDimGeographyScrubbed]&#xA;  SET &#xA;      [CityLookup] = [City]&#xA;WHERE [CityLookup] IS NULL;&#xA;&#xA;&#xA;UPDATE [dbo].[FSDimGeographyScrubbedAll]&#xA;  SET &#xA;      [CityLookup] = [City]&#xA;WHERE [CityLookup] IS NULL;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -2304,11 +2306,11 @@ FROM [dbo].[FSDimGeographyStage];</property>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="SetGeographyKey"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}"
+              SQLTask:Connection="{331633F4-EDD2-4442-B7DD-EF7CB7A984A0}"
               SQLTask:SqlStatementSource="SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;&#xA;UPDATE fb&#xA;  SET &#xA;      fb.DimGeographyID = x.DimGeographyID&#xA;FROM dbo.FSExtractBase fb&#xA;     JOIN [dbo].[FSDimGeographyScrubbed] x ON fb.[State] = x.[State]&#xA;                                              AND fb.City = x.City&#xA;                                              AND fb.ZipCode = x.ZipCode;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -2326,7 +2328,7 @@ FROM [dbo].[FSDimGeographyStage];</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}"
+          SQLTask:Connection="{331633F4-EDD2-4442-B7DD-EF7CB7A984A0}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.FSDimGeographyScrubbed;&#xA;TRUNCATE TABLE FSDimGeographyScrubbedAll;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -2342,7 +2344,7 @@ FROM [dbo].[FSDimGeographyStage];</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}"
+          SQLTask:Connection="{331633F4-EDD2-4442-B7DD-EF7CB7A984A0}"
           SQLTask:SqlStatementSource="EXEC spGeographyStage;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4006,6 +4008,21 @@ WHERE  c.EmployeeStatus = 'A'
                   startId="Package\ODS Extract\All GCS Employee\OLE DB Source.Outputs[OLE DB Source Output]" />
               </paths>
             </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\ODS Extract\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{9F02B54A-F987-434E-899F-3A7F643CDDD6}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -6199,7 +6216,7 @@ ORDER BY EmployeeID,
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
-                      SQLTask:Connection="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}"
+                      SQLTask:Connection="{331633F4-EDD2-4442-B7DD-EF7CB7A984A0}"
                       SQLTask:SqlStatementSource="USE Ops;&#xA;SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;&#xA;UPDATE fb&#xA;  SET &#xA;      fb.Director =&#xA;(&#xA;    SELECT fcr.ReplacementValue&#xA;    FROM dbo.FSExtractCrossReference fcr&#xA;    WHERE fcr.BaseValue = fb.ManagerFullNameLevel2&#xA;          AND fcr.Category = 'Directors'&#xA;)&#xA;FROM dbo.FSExtractBase fb;&#xA;UPDATE fb&#xA;  SET &#xA;      fb.Region =&#xA;(&#xA;    SELECT fcr.ReplacementValue&#xA;    FROM dbo.FSExtractCrossReference fcr&#xA;    WHERE fcr.BaseValue = fb.Director&#xA;          AND fcr.Category = 'Region'&#xA;)&#xA;FROM dbo.FSExtractBase fb;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
                   </DTS:ObjectData>
                 </DTS:Executable>
@@ -6214,7 +6231,7 @@ ORDER BY EmployeeID,
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
-                      SQLTask:Connection="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}"
+                      SQLTask:Connection="{331633F4-EDD2-4442-B7DD-EF7CB7A984A0}"
                       SQLTask:SqlStatementSource="SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;&#xA;&#xA;UPDATE fb&#xA;  SET &#xA;      fb.GRTMet = CASE&#xA;                      WHEN fb.ResponseProfileNumeric &gt;= fb.ResponseMinutes&#xA;                      THEN 1&#xA;                      WHEN fb.ResponseProfileNumeric &lt; fb.ResponseMinutes&#xA;                      THEN 0&#xA;                      ELSE NULL&#xA;                  END, &#xA;      fb.ServedIndex = fb.ResponseProfileNumeric - fb.ResponseMinutes&#xA;FROM dbo.FSExtractBase fb&#xA;WHERE fb.ResponseProfile IS NOT NULL;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
                   </DTS:ObjectData>
                 </DTS:Executable>
@@ -6229,7 +6246,7 @@ ORDER BY EmployeeID,
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
-                      SQLTask:Connection="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}"
+                      SQLTask:Connection="{331633F4-EDD2-4442-B7DD-EF7CB7A984A0}"
                       SQLTask:SqlStatementSource="UPDATE fb&#xA;  SET &#xA;fb.RemoteOrder = 1&#xA;FROM FSExtractBase fb&#xA;WHERE fb.TotalTravel = 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
                   </DTS:ObjectData>
                 </DTS:Executable>
@@ -6244,7 +6261,7 @@ ORDER BY EmployeeID,
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
-                      SQLTask:Connection="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}"
+                      SQLTask:Connection="{331633F4-EDD2-4442-B7DD-EF7CB7A984A0}"
                       SQLTask:SqlStatementSource="USE [Ops]&#xA;GO&#xA;&#xA;DECLARE @RC int&#xA;&#xA;EXECUTE @RC = [dbo].[uspFSResponseProfile] &#xA;GO&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
                   </DTS:ObjectData>
                 </DTS:Executable>
@@ -6259,7 +6276,7 @@ ORDER BY EmployeeID,
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
-                      SQLTask:Connection="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}"
+                      SQLTask:Connection="{331633F4-EDD2-4442-B7DD-EF7CB7A984A0}"
                       SQLTask:SqlStatementSource="USE Ops&#xA;GO&#xA;&#xA;DECLARE @RC int&#xA;&#xA;-- TODO: Set parameter values here.&#xA;&#xA;EXECUTE @RC = [dbo].[uspFieldServicesOutcomes] &#xA;GO&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
                   </DTS:ObjectData>
                 </DTS:Executable>
@@ -6274,7 +6291,7 @@ ORDER BY EmployeeID,
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
-                      SQLTask:Connection="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}"
+                      SQLTask:Connection="{331633F4-EDD2-4442-B7DD-EF7CB7A984A0}"
                       SQLTask:SqlStatementSource="UPDATE x&#xA;  SET &#xA;      x.TotalTravel = ISNULL(x.TotalTimeTravel, 0) + ISNULL(x.TotalTimeReturn, 0)&#xA;FROM FSExtractBase x" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
                   </DTS:ObjectData>
                 </DTS:Executable>
@@ -6289,7 +6306,7 @@ ORDER BY EmployeeID,
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
-                      SQLTask:Connection="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}"
+                      SQLTask:Connection="{331633F4-EDD2-4442-B7DD-EF7CB7A984A0}"
                       SQLTask:SqlStatementSource="USE Ops;&#xA;&#xA;SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;&#xA;&#xA;UPDATE fb&#xA;  SET &#xA;      fb.ServiceOrderCreateDateMinUTC = CASE&#xA;                                            WHEN fb.Timezone = 'EST'&#xA;                                            THEN DATEADD(hh, -5, fb.ServiceOrderCreateDateMin)&#xA;                                            WHEN fb.Timezone = 'CST'&#xA;                                            THEN DATEADD(hh, -6, fb.ServiceOrderCreateDateMin)&#xA;                                            WHEN fb.Timezone = 'MST'&#xA;                                            THEN DATEADD(hh, -7, fb.ServiceOrderCreateDateMin)&#xA;                                            WHEN fb.Timezone = 'PST'&#xA;                                            THEN DATEADD(hh, -8, fb.ServiceOrderCreateDateMin)&#xA;                                            ELSE fb.ServiceOrderCreateDateMin&#xA;                                        END, &#xA;      fb.ServiceOrderClosedDateMinUTC = CASE&#xA;                                            WHEN fb.Timezone = 'EST'&#xA;                                            THEN DATEADD(hh, -5, fb.ServiceOrderClosedDateMin)&#xA;                                            WHEN fb.Timezone = 'CST'&#xA;                                            THEN DATEADD(hh, -6, fb.ServiceOrderClosedDateMin)&#xA;                                            WHEN fb.Timezone = 'MST'&#xA;                                            THEN DATEADD(hh, -7, fb.ServiceOrderClosedDateMin)&#xA;                                            WHEN fb.Timezone = 'PST'&#xA;                                            THEN DATEADD(hh, -8, fb.ServiceOrderClosedDateMin)&#xA;                                            ELSE fb.ServiceOrderClosedDateMin&#xA;                                        END, &#xA;      fb.FirstReponseByDateMinUTC = CASE&#xA;                                        WHEN fb.Timezone = 'EST'&#xA;                                        THEN DATEADD(hh, -5, fb.FirstReponseByDateMin)&#xA;                                        WHEN fb.Timezone = 'CST'&#xA;                                        THEN DATEADD(hh, -6, fb.FirstReponseByDateMin)&#xA;                                        WHEN fb.Timezone = 'MST'&#xA;                                        THEN DATEADD(hh, -7, fb.FirstReponseByDateMin)&#xA;                                        WHEN fb.Timezone = 'PST'&#xA;                                        THEN DATEADD(hh, -8, fb.FirstReponseByDateMin)&#xA;                                        ELSE fb.FirstReponseByDateMin&#xA;                                    END, &#xA;      fb.GRTDueDateMinUTC = CASE&#xA;                                WHEN fb.Timezone = 'EST'&#xA;                                THEN DATEADD(hh, -5, fb.GRTDueDateMin)&#xA;                                WHEN fb.Timezone = 'CST'&#xA;                                THEN DATEADD(hh, -6, fb.GRTDueDateMin)&#xA;                                WHEN fb.Timezone = 'MST'&#xA;                                THEN DATEADD(hh, -7, fb.GRTDueDateMin)&#xA;                                WHEN fb.Timezone = 'PST'&#xA;                                THEN DATEADD(hh, -8, fb.GRTDueDateMin)&#xA;                                ELSE fb.GRTDueDateMin&#xA;                            END, &#xA;      fb.FirstOnsiteTimeMinUTC = CASE&#xA;                                     WHEN fb.Timezone = 'EST'&#xA;                                     THEN DATEADD(hh, -5, fb.FirstOnsiteTimeMin)&#xA;                                     WHEN fb.Timezone = 'CST'&#xA;                                     THEN DATEADD(hh, -6, fb.FirstOnsiteTimeMin)&#xA;                                     WHEN fb.Timezone = 'MST'&#xA;                                     THEN DATEADD(hh, -7, fb.FirstOnsiteTimeMin)&#xA;                                     WHEN fb.Timezone = 'PST'&#xA;                                     THEN DATEADD(hh, -8, fb.FirstOnsiteTimeMin)&#xA;                                     ELSE fb.FirstOnsiteTimeMin&#xA;                                 END, &#xA;      fb.CaseStartDateMinUTC = CASE&#xA;                                     WHEN fb.Timezone = 'EST'&#xA;                                     THEN DATEADD(hh, -5, fb.CaseStartDateMin)&#xA;                                     WHEN fb.Timezone = 'CST'&#xA;                                     THEN DATEADD(hh, -6, fb.CaseStartDateMin)&#xA;                                     WHEN fb.Timezone = 'MST'&#xA;                                     THEN DATEADD(hh, -7, fb.CaseStartDateMin)&#xA;                                     WHEN fb.Timezone = 'PST'&#xA;                                     THEN DATEADD(hh, -8, fb.CaseStartDateMin)&#xA;                                     ELSE fb.CaseStartDateMin&#xA;                                 END, &#xA;      fb.CaseExists = CASE&#xA;                          WHEN fb.ServiceCase IS NOT NULL&#xA;                          THEN 1&#xA;                          ELSE 0&#xA;                      END, &#xA;      fb.ServiceOrderExists = CASE&#xA;                                  WHEN fb.ServiceOrderID IS NOT NULL&#xA;                                  THEN 1&#xA;                                  ELSE 0&#xA;                              END, &#xA;      fb.ConfirmationIDExists = CASE&#xA;                                    WHEN fb.ConfirmationID IS NOT NULL&#xA;                                    THEN 1&#xA;                                    ELSE 0&#xA;                                END&#xA;FROM dbo.FSExtractBase fb;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
                   </DTS:ObjectData>
                 </DTS:Executable>
@@ -6304,7 +6321,7 @@ ORDER BY EmployeeID,
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
-                      SQLTask:Connection="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}"
+                      SQLTask:Connection="{331633F4-EDD2-4442-B7DD-EF7CB7A984A0}"
                       SQLTask:SqlStatementSource="exec uspEmployeeZip" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
                   </DTS:ObjectData>
                 </DTS:Executable>
@@ -9151,6 +9168,48 @@ WHERE so.[SOHeaderFlag] = 'Y' -- Only the main Service Order
                           refId="Package\ODS Extract\OdsToCx\OpsUtilization.Inputs[OLE DB Destination Input].ExternalColumns[SOCreateDateKey]"
                           dataType="i4"
                           name="SOCreateDateKey" />
+                        <externalMetadataColumn
+                          refId="Package\ODS Extract\OdsToCx\OpsUtilization.Inputs[OLE DB Destination Input].ExternalColumns[ProductGroup__c]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ProductGroup__c" />
+                        <externalMetadataColumn
+                          refId="Package\ODS Extract\OdsToCx\OpsUtilization.Inputs[OLE DB Destination Input].ExternalColumns[Assembly__c]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Assembly__c" />
+                        <externalMetadataColumn
+                          refId="Package\ODS Extract\OdsToCx\OpsUtilization.Inputs[OLE DB Destination Input].ExternalColumns[Component__c]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Component__c" />
+                        <externalMetadataColumn
+                          refId="Package\ODS Extract\OdsToCx\OpsUtilization.Inputs[OLE DB Destination Input].ExternalColumns[Subcomponent__c]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Subcomponent__c" />
+                        <externalMetadataColumn
+                          refId="Package\ODS Extract\OdsToCx\OpsUtilization.Inputs[OLE DB Destination Input].ExternalColumns[DefectCode__c]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="DefectCode__c" />
+                        <externalMetadataColumn
+                          refId="Package\ODS Extract\OdsToCx\OpsUtilization.Inputs[OLE DB Destination Input].ExternalColumns[DefectDescription__c]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="DefectDescription__c" />
+                        <externalMetadataColumn
+                          refId="Package\ODS Extract\OdsToCx\OpsUtilization.Inputs[OLE DB Destination Input].ExternalColumns[ActionTaken__c]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="ActionTaken__c" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -9194,6 +9253,7 @@ WHERE so.[SOHeaderFlag] = 'Y' -- Only the main Service Order
           DTS:refId="Package\ODS Extract\Utilization"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
+          DTS:Disabled="True"
           DTS:DTSID="{4123EE6E-CFDF-4C4F-B02D-C22FEBF50B2C}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -9389,8 +9449,8 @@ WITH Timelog
                   <connections>
                     <connection
                       refId="Package\ODS Extract\Utilization\ODS Utilize.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[ODS]"
-                      connectionManagerRefId="Package.ConnectionManagers[ODS]"
+                      connectionManagerID="{7F0BC2E6-8894-4448-9E64-1D5FF5AE5C34}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ODS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -9899,8 +9959,8 @@ WITH Timelog
                   <connections>
                     <connection
                       refId="Package\ODS Extract\Utilization\Ops Utilize.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LocalHost.Ops]"
-                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.Ops]"
+                      connectionManagerID="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[LocalHost.Ops]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -10827,7 +10887,7 @@ SELECT * FROM WOCatCode</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}"
+          SQLTask:Connection="{331633F4-EDD2-4442-B7DD-EF7CB7A984A0}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.FSDimWBSUnpivot ;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -10844,7 +10904,7 @@ SELECT * FROM WOCatCode</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}"
+          SQLTask:Connection="{331633F4-EDD2-4442-B7DD-EF7CB7A984A0}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.FSExtractBase;&#xA;TRUNCATE TABLE dbo.FSDimContingentWorker;&#xA;TRUNCATE TABLE dbo.FSWordOrderMultiCategory;&#xA;TRUNCATE TABLE dbo.FSDimGeographyScrubbed;&#xA;TRUNCATE TABLE FSDimGeographyScrubbedAll;&#xA;TRUNCATE TABLE dbo.FSWorkOrderMultiLevelCat;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -16405,7 +16465,7 @@ SELECT * FROM WOCatCode</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}"
+          SQLTask:Connection="{331633F4-EDD2-4442-B7DD-EF7CB7A984A0}"
           SQLTask:SqlStatementSource="EXEC spWorkOrderAdd" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -16531,27 +16591,27 @@ SELECT * FROM WOCatCode</property>
         <NodeLayout
           Size="163.111111111112,41.7777777777778"
           Id="Package\ContinentAdds"
-          TopLeft="526.777760393091,306.488478769822" />
+          TopLeft="486.788854326476,50.0440343253776" />
         <NodeLayout
-          Size="164,41.7777777777778"
+          Size="118.222222222223,41.7777777777778"
           Id="Package\ContingentWorker"
-          TopLeft="100.814814715474,320.438698364668" />
+          TopLeft="11.3796215068414,289.457855633377" />
         <NodeLayout
           Size="144,41.7777777777778"
           Id="Package\ContingentZip"
-          TopLeft="809.611081399854,304.507632939089" />
+          TopLeft="496.344409882032,132.45831366791" />
         <NodeLayout
           Size="108,41.7777777777778"
           Id="Package\Dupes"
-          TopLeft="429.749987565811,144.618751745366" />
+          TopLeft="263.381923843591,153.635355616475" />
         <NodeLayout
           Size="149.333333333334,49.7777777777778"
           Id="Package\Enhanced Geography Fuzzy Match"
-          TopLeft="415.833318829537,224.840979952716" />
+          TopLeft="242.715257176924,260.150049542774" />
         <NodeLayout
           Size="191.111111111112,41.7777777777778"
           Id="Package\Geography Fuzzy Match"
-          TopLeft="401.527764813769,388.442521246851" />
+          TopLeft="221.826368288035,374.664743469073" />
         <NodeLayout
           Size="146.666666666667,41.7777777777778"
           Id="Package\Geography Sequence\CleanUpNulls"
@@ -16564,90 +16624,82 @@ SELECT * FROM WOCatCode</property>
           HeaderHeight="43.111111111111114"
           IsExpanded="False"
           PanelSize="388,108"
-          Size="388,43.1111111111112"
+          Size="149.333333333334,43.1111111111112"
           Id="Package\Geography Sequence"
-          TopLeft="348.416653040385,71.1206616901754" />
+          TopLeft="242.715257176924,45.7873283568421" />
         <NodeLayout
-          Size="164,41.7777777777778"
+          Size="113.333333333334,41.7777777777778"
           Id="Package\GeographyProd"
-          TopLeft="104.564814566462,387.630269127961" />
+          TopLeft="13.8240659512858,368.51915801685" />
         <NodeLayout
-          Size="164,41.7777777777778"
+          Size="115.555555555556,41.7777777777778"
           Id="Package\GeographyStage"
-          TopLeft="97.8981481647053,245.626437695595" />
+          TopLeft="12.7129548401747,210.396553249904" />
         <NodeLayout
-          Size="161.777777777778,41.7777777777778"
+          Size="119.111111111112,41.7777777777778"
           Id="Package\ODS Extract\All GCS Employee"
-          TopLeft="183.97220843037,127.042159008813" />
+          TopLeft="250.194430652592,58.1532701199241" />
         <NodeLayout
-          Size="124.444444444445,41.7777777777778"
+          Size="112.444444444445,41.7777777777778"
+          Id="Package\ODS Extract\Data Flow Task"
+          TopLeft="383.249972797104,59.9387073423615" />
+        <NodeLayout
+          Size="100.444444444445,41.7777777777778"
           Id="Package\ODS Extract\Employee"
-          TopLeft="25.6203728704542,63.3620701448527" />
+          TopLeft="127.842595092676,54.4731812559639" />
         <NodeLayout
-          Size="145.777777777778,41.7777777777778"
+          Size="109.777777777778,41.7777777777778"
           Id="Package\ODS Extract\Hours Worked"
-          TopLeft="20.7499983277587,120.22989278212" />
+          TopLeft="154.083331661092,8.67433722656443" />
         <NodeLayout
-          Size="120.444444444445,41.7777777777778"
+          Size="99.1111111111112,41.7777777777778"
           Id="Package\ODS Extract\OdsToCx"
           TopLeft="30.3425941986066,4.25479260365347" />
         <NodeLayout
           Size="124.444444444445,41.7777777777778"
           Id="Package\ODS Extract\Utilization"
-          TopLeft="195.777768903309,7.32184502136342" />
+          TopLeft="401.111102236643,11.7662894658079" />
         <NodeLayout
           Size="96,41.7777777777778"
           Id="Package\ODS Extract\WO"
-          TopLeft="218.555546482404,64.6858298136264" />
+          TopLeft="284.333324260182,11.7969409247375" />
         <ContainerLayout
-          HeaderHeight="43.111111111111114"
-          IsExpanded="True"
-          PanelSize="472.444444444445,261.777777777778"
-          Size="472.444444444445,304.888888888889"
+          HeaderHeight="43"
+          IsExpanded="False"
+          PanelSize="561.777777777778,168.444444444445"
+          Size="128.888888888889,43.1111111111112"
           Id="Package\ODS Extract"
-          TopLeft="18.3333326048318,158.455943871653" />
+          TopLeft="5.15739928461915,130.890806421986" />
         <NodeLayout
           Size="178.222222222223,41.7777777777778"
           Id="Package\TruncateWBSUnpivot"
-          TopLeft="797.91663674017,228.108537727456" />
+          TopLeft="479.23329877092,214.872593010443" />
         <NodeLayout
-          Size="164,41.7777777777778"
+          Size="111.111111111112,41.7777777777778"
           Id="Package\TuncateTables"
-          TopLeft="95.3981482640468,70.0517262607352" />
+          TopLeft="14.9351770623969,50.9406151496241" />
         <NodeLayout
-          Size="136.444444444445,41.7777777777778"
+          Size="106.222222222223,41.7777777777778"
           Id="Package\WBSUnpivot"
-          TopLeft="816.305525728401,144.088752610042" />
+          TopLeft="515.23329877092,297.286872352976" />
         <NodeLayout
           Size="129.333333333334,41.7777777777778"
           Id="Package\WOUpdate"
-          TopLeft="825.444414575897,69.0344850288416" />
+          TopLeft="503.677743215365,379.701151695508" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="177.398148264047,111.829504038513">
+          TopLeft="70.046288173508,92.7183929274019">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="77.1574065630072,46.62643983314"
+              EndConnector="0,38.1724134945842"
               Start="0,0"
-              End="77.1574065630072,39.12643983314">
+              End="0,30.6724134945842">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.31321991657" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.31321991657"
-                    Point2="0,23.31321991657"
-                    Point3="4,23.31321991657" />
-                  <mssgle:LineSegment
-                    End="73.1574065630072,23.31321991657" />
-                  <mssgle:CubicBezierSegment
-                    Point1="73.1574065630072,23.31321991657"
-                    Point2="77.1574065630072,23.31321991657"
-                    Point3="77.1574065630072,27.31321991657" />
-                  <mssgle:LineSegment
-                    End="77.1574065630072,39.12643983314" />
+                    End="0,30.6724134945842" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16658,30 +16710,18 @@ SELECT * FROM WOCatCode</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="254.555554827054,463.344832760542">
+          TopLeft="70.046288173508,174.001917533097">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-74.6574066623487,-217.718395064947"
+              EndConnector="0,36.3946357168064"
               Start="0,0"
-              End="-74.6574066623487,-210.218395064947">
+              End="0,28.8946357168064">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-104.859197532473" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-104.859197532473"
-                    Point2="0,-108.859197532473"
-                    Point3="-4,-108.859197532473" />
-                  <mssgle:LineSegment
-                    End="-70.6574066623487,-108.859197532473" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-70.6574066623487,-108.859197532473"
-                    Point2="-74.6574066623487,-108.859197532473"
-                    Point3="-74.6574066623487,-112.859197532473" />
-                  <mssgle:LineSegment
-                    End="-74.6574066623487,-210.218395064947" />
+                    End="0,28.8946357168064" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16692,18 +16732,18 @@ SELECT * FROM WOCatCode</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 10]"
-          TopLeft="689.888871504202,326.386944743345">
+          TopLeft="568.344409882032,91.8218121031553">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="119.722209895651,0"
+              EndConnector="0,40.6365015647549"
               Start="0,0"
-              End="112.222209895651,0">
+              End="0,33.1365015647549">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="112.222209895651,0" />
+                    End="0,33.1365015647549" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16714,18 +16754,18 @@ SELECT * FROM WOCatCode</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 11]"
-          TopLeft="884.319414625567,304.507632939089">
+          TopLeft="568.344409882032,174.236091445688">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,-34.6213174338551"
+              EndConnector="0,40.6365015647549"
               Start="0,0"
-              End="0,-27.1213174338551">
+              End="0,33.1365015647549">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-27.1213174338551" />
+                    End="0,33.1365015647549" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16736,18 +16776,18 @@ SELECT * FROM WOCatCode</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 12]"
-          TopLeft="885.777747900952,228.108537727456">
+          TopLeft="568.344409882032,256.650370788221">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,-42.2420073396362"
+              EndConnector="0,40.6365015647549"
               Start="0,0"
-              End="0,-34.7420073396362">
+              End="0,33.1365015647549">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-34.7420073396362" />
+                    End="0,33.1365015647549" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16758,18 +16798,18 @@ SELECT * FROM WOCatCode</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="887.319414596593,144.088752610042">
+          TopLeft="568.344409882032,339.064650130753">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,-33.2764898034228"
+              EndConnector="0,40.6365015647549"
               Start="0,0"
-              End="0,-25.7764898034228">
+              End="0,33.1365015647549">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-25.7764898034228" />
+                    End="0,33.1365015647549" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16780,18 +16820,18 @@ SELECT * FROM WOCatCode</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="181.35648144009,287.404215473373">
+          TopLeft="70.4907326179525,252.174331027681">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,33.0344828912949"
+              EndConnector="0,37.2835246056953"
               Start="0,0"
-              End="0,25.5344828912949">
+              End="0,29.7835246056953">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.5344828912949" />
+                    End="0,29.7835246056953" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16802,18 +16842,18 @@ SELECT * FROM WOCatCode</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="184.689814640968,362.216476142446">
+          TopLeft="70.4907326179525,331.235633411154">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,25.4137929855149"
+              EndConnector="0,37.2835246056953"
               Start="0,0"
-              End="0,17.9137929855149">
+              End="0,29.7835246056953">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.9137929855149" />
+                    End="0,29.7835246056953" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16824,18 +16864,18 @@ SELECT * FROM WOCatCode</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="268.564814566462,408.925284076295">
+          TopLeft="127.157399284619,392.48083963185">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="132.962950247307,0"
+              EndConnector="94.6689690034162,0"
               Start="0,0"
-              End="125.462950247307,0">
+              End="87.1689690034162,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="125.462950247307,0" />
+                    End="87.1689690034162,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16846,18 +16886,18 @@ SELECT * FROM WOCatCode</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="493.791652932764,388.442521246851">
+          TopLeft="317.381923843591,374.664743469073">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,-113.823763516356"
+              EndConnector="0,-64.7369161485215"
               Start="0,0"
-              End="0,-106.323763516356">
+              End="0,-57.2369161485215">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-106.323763516356" />
+                    End="0,-57.2369161485215" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16868,18 +16908,18 @@ SELECT * FROM WOCatCode</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="487.124986531007,224.840979952716">
+          TopLeft="317.381923843591,260.150049542774">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,-38.4444504295725"
+              EndConnector="0,-64.7369161485215"
               Start="0,0"
-              End="0,-30.9444504295725">
+              End="0,-57.2369161485215">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-30.9444504295725" />
+                    End="0,-57.2369161485215" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16890,18 +16930,18 @@ SELECT * FROM WOCatCode</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="481.416653636431,144.618751745366">
+          TopLeft="317.381923843591,153.635355616475">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,-30.3869789440795"
+              EndConnector="0,-64.7369161485215"
               Start="0,0"
-              End="0,-22.8869789440795">
+              End="0,-57.2369161485215">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-22.8869789440795" />
+                    End="0,-57.2369161485215" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16912,18 +16952,18 @@ SELECT * FROM WOCatCode</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="607.041651161182,114.231772801286">
+          TopLeft="392.048590510258,69.137903563332">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,192.256705968536"
+              EndConnector="94.7402638162184,0"
               Start="0,0"
-              End="0,184.756705968536">
+              End="87.2402638162184,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,184.756705968536" />
+                    End="87.2402638162184,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -17313,7 +17353,7 @@ SELECT * FROM WOCatCode</property>
     design-time-name="Package\ODS Extract\Hours Worked">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="182.666666666667,41.7777777777778"
           Id="Package\ODS Extract\Hours Worked\Local Employee Hours"
@@ -17341,7 +17381,9 @@ SELECT * FROM WOCatCode</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17639,7 +17681,7 @@ SELECT * FROM WOCatCode</property>
     design-time-name="Package\ODS Extract\Utilization">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="131.111111111112,41.7777777777778"
           Id="Package\ODS Extract\Utilization\ODS Utilize"
@@ -17667,7 +17709,9 @@ SELECT * FROM WOCatCode</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17702,14 +17746,14 @@ SELECT * FROM WOCatCode</property>
         <NodeLayout
           Size="117.333333333334,41.7777777777778"
           Id="Package\ODS Extract\WO\WO Ops"
-          TopLeft="894.166666666667,220.833333333333" />
+          TopLeft="242.611111111111,162.611111111111" />
         <NodeLayout
           Size="120,41.7777777777778"
           Id="Package\ODS Extract\WO\WO ODS"
-          TopLeft="894.5,133.333333333333" />
+          TopLeft="242.944444444444,75.1111111111108" />
         <EdgeLayout
           Id="Package\ODS Extract\WO.Paths[OLE DB Source Output]"
-          TopLeft="953.666666666667,175.111111111111">
+          TopLeft="302.111111111111,116.888888888889">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -17734,6 +17778,27 @@ SELECT * FROM WOCatCode</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ODS Extract\WO\WO ODS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ODS Extract\WO\WO Ops">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\WBSUnpivot">
     <LayoutInfo>
