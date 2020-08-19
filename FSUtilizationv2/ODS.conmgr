@@ -5,10 +5,6 @@
   DTS:CreationName="OLEDB">
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="Data Source=PWIL0690PSDB22\ODSDW;User ID=DownStreamApps-ODS10;Initial Catalog=ODS_1;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
-      <DTS:Password
-        DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQE4Jz2WrO0yh6Y46eaTg6gAAAAACAAAAAAADZgAAwAAAABAAAAAD0ZgJcLmmMj2uprxPh0dcAAAAAASAAACgAAAAEAAAAPTNN3zBOIZsi7Jy7wBhuRp4AAAAffR+Q1vBB9tjdkmSmQ3scgGHqrBE27+u24jejKkvc+VsYMq65gAMpzUU+bWVbHmlJZ/tzb3/COVl2vyaezgVK5PAF+YNAFAr+81sSlTRlAzMWxNbv/7+DA+n3GGkI3Sa8IZ/bgfRnwBFSnEBo0FHCr96CCKeMAcQFAAAANc5mvdU1Pd1oTsUldnjsc4Y7KNc</DTS:Password>
-    </DTS:ConnectionManager>
+      DTS:ConnectionString="Data Source=PWIL0690PSDB22\ODSDW;Initial Catalog=ODS_1;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>

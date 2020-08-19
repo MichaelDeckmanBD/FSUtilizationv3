@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="8/11/2020 9:07:25 AM"
@@ -8,11 +8,12 @@
   DTS:Description="SSIS Package Description"
   DTS:DTSID="{490A924F-C75C-4732-8B66-30AEAC0C9AEF}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
   DTS:LocaleID="1033"
   DTS:MaxErrorCount="0"
   DTS:ObjectName="Utilizationv2"
-  DTS:VersionGUID="{40C9F6C7-6857-4BFF-AF27-8221D2A13A4D}">
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{0FF7E4E2-CE3C-4968-9CE2-5DD1AC4D6BC5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,12 +24,7 @@
       DTS:ObjectName="DestinationConnectionOLEDB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=PWNC0429TABLU01;User ID=AlteryxUser;Initial Catalog=Ops;Provider=SQLNCLI11;Auto Translate=false;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQE4Jz2WrO0yh6Y46eaTg6gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADlSRpMPiTLOiV4rlt69OG7AAAAAASAAACgAAAAEAAAAOXB3qvjKc3ZqZqhyc7ovu8oAAAAGEraeA038HfWS0WM0UI1RUAGFThY0Ny5WtQ39h/LXrnCuto4Pmk2qxQAAADbl7Xw0GzSDeKrqB4/mrbeq+zofg</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=PWNC0429TABLU01;Initial Catalog=Ops;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=false;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -38,12 +34,7 @@
       DTS:ObjectName="SourceConnectionOLEDB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=PWIL0690PSDB22\ODSDW;User ID=DownStreamApps-ODS10;Initial Catalog=ODS_1;Provider=SQLNCLI11;Auto Translate=false;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQE4Jz2WrO0yh6Y46eaTg6gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAUEq505J0Ag6bveWVliiBtAAAAAASAAACgAAAAEAAAABZRZjIJzC4Qj5pDYvRRel4YAAAAe4TMeSIIR7zPlQz4k3yIPAhYdGqgU47lFAAAAH87gXMpCFVlIckIFx3qG+B5rw8k</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=PWIL0690PSDB22\ODSDW;Initial Catalog=ODS_1;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=false;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -1433,7 +1424,7 @@ WITH EmpHierarchy
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[{90FD1B6E-3B87-41A2-A1D9-BA10374A0B58\}]"
+      DTS:refId="Package.PrecedenceConstraints[{22C9A27A-A8B9-4780-A2A9-47546F8BEB92\}]"
       DTS:CreationName=""
       DTS:DTSID="{22C9A27A-A8B9-4780-A2A9-47546F8BEB92}"
       DTS:From="Package\Preparation SQL Task 1"
@@ -1441,4 +1432,50 @@ WITH EmpHierarchy
       DTS:ObjectName="{22C9A27A-A8B9-4780-A2A9-47546F8BEB92}"
       DTS:To="Package\Data Flow Task 1" />
   </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="116.444444444445,41.7777777777778"
+          Id="Package\Data Flow Task 1"
+          TopLeft="12.8333333333333,107.277777777778" />
+        <NodeLayout
+          Size="131.111111111112,41.7777777777778"
+          Id="Package\Preparation SQL Task 1"
+          TopLeft="5.50000000000001,5.50000000000002" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[{22C9A27A-A8B9-4780-A2A9-47546F8BEB92\}]"
+          TopLeft="71.0555555555556,47.2777777777778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

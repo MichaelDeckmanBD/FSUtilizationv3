@@ -8,12 +8,12 @@
   DTS:Description="SSIS Package Description"
   DTS:DTSID="{F10D0863-CB61-4DA1-9DEA-7EF4E288CC52}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
   DTS:LocaleID="1033"
   DTS:MaxErrorCount="0"
   DTS:ObjectName="FSDimCustTerritoryMDM"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{DDDECCDF-139E-454F-887C-AB338126F440}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{2C39BB95-258F-43BB-A881-2BD9A065E45A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -116,8 +116,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task 1\Destination - FSDimCustTerritoryMDM.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
-                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerID="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.Ops]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
