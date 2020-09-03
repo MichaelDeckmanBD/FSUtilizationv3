@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="114"
-  DTS:VersionGUID="{74ED2383-E042-427E-A424-FA4B486C3FC9}">
+  DTS:VersionBuild="115"
+  DTS:VersionGUID="{9245F7A8-B220-4547-A682-0777BCF81AC5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -16570,27 +16570,27 @@ SELECT * FROM WOCatCode</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="163.111111111112,41.7777777777778"
+          Size="163.2,41.6"
           Id="Package\ContinentAdds"
           TopLeft="505.455520993143,50.0440343253776" />
         <NodeLayout
-          Size="118.222222222223,41.7777777777778"
+          Size="118.4,41.6"
           Id="Package\ContingentWorker"
           TopLeft="30.0462881735081,289.457855633377" />
         <NodeLayout
-          Size="129.777777777778,46.6666666666667"
+          Size="129.6,46.8"
           Id="Package\ContingentZip"
           TopLeft="516.788854326476,134.236091445688" />
         <NodeLayout
-          Size="108,41.7777777777778"
+          Size="108,41.6"
           Id="Package\Dupes"
           TopLeft="282.048590510258,153.635355616475" />
         <NodeLayout
-          Size="149.333333333334,49.7777777777778"
+          Size="149.2,49.6"
           Id="Package\Enhanced Geography Fuzzy Match"
           TopLeft="261.381923843591,260.150049542774" />
         <NodeLayout
-          Size="191.111111111112,41.7777777777778"
+          Size="191.2,41.6"
           Id="Package\Geography Fuzzy Match"
           TopLeft="240.493034954702,374.664743469073" />
         <NodeLayout
@@ -16605,15 +16605,15 @@ SELECT * FROM WOCatCode</property>
           HeaderHeight="43.111111111111114"
           IsExpanded="False"
           PanelSize="388,108"
-          Size="149.333333333334,43.1111111111112"
+          Size="149.2,43.2"
           Id="Package\Geography Sequence"
           TopLeft="261.381923843591,45.7873283568421" />
         <NodeLayout
-          Size="113.333333333334,41.7777777777778"
+          Size="113.2,41.6"
           Id="Package\GeographyProd"
           TopLeft="32.4907326179525,368.51915801685" />
         <NodeLayout
-          Size="115.555555555556,41.7777777777778"
+          Size="115.6,41.6"
           Id="Package\GeographyStage"
           TopLeft="31.3796215068414,210.396553249904" />
         <NodeLayout
@@ -16644,39 +16644,39 @@ SELECT * FROM WOCatCode</property>
           HeaderHeight="43"
           IsExpanded="False"
           PanelSize="561.777777777778,168.444444444445"
-          Size="128.888888888889,43.1111111111112"
+          Size="126.8,43.2"
           Id="Package\ODS Extract"
           TopLeft="23.8240659512858,130.890806421986" />
         <NodeLayout
-          Size="178.222222222223,41.7777777777778"
+          Size="178.4,41.6"
           Id="Package\TruncateWBSUnpivot"
           TopLeft="497.899965437587,214.872593010443" />
         <NodeLayout
-          Size="111.111111111112,41.7777777777778"
+          Size="111.2,41.6"
           Id="Package\TuncateTables"
           TopLeft="33.6018437290636,50.9406151496241" />
         <NodeLayout
-          Size="106.222222222223,41.7777777777778"
+          Size="106.4,41.6"
           Id="Package\WBSUnpivot"
           TopLeft="533.899965437587,297.286872352976" />
         <NodeLayout
-          Size="129.333333333334,41.7777777777778"
+          Size="129.2,41.6"
           Id="Package\WOUpdate"
           TopLeft="522.344409882032,379.701151695508" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="88.7129548401747,92.7183929274019">
+          TopLeft="88.2129548401747,92.5406151496241">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,38.1724134945842"
+              EndConnector="0,38.3501912723619"
               Start="0,0"
-              End="0,30.6724134945842">
+              End="0,30.8501912723619">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.6724134945842" />
+                    End="0,30.8501912723619" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16687,18 +16687,18 @@ SELECT * FROM WOCatCode</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="88.7129548401747,174.001917533097">
+          TopLeft="88.2018437290636,174.090806421986">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,36.3946357168068"
+              EndConnector="0,36.305746827918"
               Start="0,0"
-              End="0,28.8946357168068">
+              End="0,28.805746827918">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.8946357168068" />
+                    End="0,28.805746827918" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -17391,7 +17391,7 @@ SELECT * FROM WOCatCode</property>
     design-time-name="Package\ODS Extract\OdsToCx">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="142.666666666667,41.7777777777778"
           Id="Package\ODS Extract\OdsToCx\OpsUtilization"
@@ -17419,7 +17419,9 @@ SELECT * FROM WOCatCode</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
