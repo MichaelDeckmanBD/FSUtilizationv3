@@ -8,12 +8,12 @@
   DTS:Description="SSIS Package Description"
   DTS:DTSID="{D1F2F310-9323-4174-A5B2-2B0F55101EAD}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
   DTS:LocaleID="1033"
   DTS:MaxErrorCount="0"
   DTS:ObjectName="Timesheet"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{EF83C235-990D-4541-8DA6-E183EE2A5409}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{4DED8C08-EF09-492C-9DCF-086196CD3F15}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -543,39 +543,27 @@ GROUP BY dbo.ADPTimesheets.EmployeeID, CAST(DATEADD(month, DATEDIFF(month, 0, Pa
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="123.555555555556,41.7777777777778"
+          Size="123.6,41.6"
           Id="Package\ADP Data"
-          TopLeft="20.1666666666667,107.277777777778" />
+          TopLeft="34.5666666666667,103.677777777778" />
         <NodeLayout
-          Size="189.333333333334,41.7777777777778"
+          Size="189.2,41.6"
           Id="Package\Preparation SQL Task 1"
           TopLeft="5.50000000000001,5.50000000000002" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[{6E187F48-184C-4187-86F4-F443AF1DBE1B\}]"
-          TopLeft="100.166666666667,47.2777777777778">
+          TopLeft="98.2333333333333,47.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-18.2222222222222,60.0000000000001"
+              EndConnector="0,56.577777777778"
               Start="0,0"
-              End="-18.2222222222222,52.5000000000001">
+              End="0,49.077777777778">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="-4,30" />
-                  <mssgle:LineSegment
-                    End="-14.2222222222222,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-14.2222222222222,30"
-                    Point2="-18.2222222222222,30"
-                    Point3="-18.2222222222222,34" />
-                  <mssgle:LineSegment
-                    End="-18.2222222222222,52.5000000000001" />
+                    End="0,49.077777777778" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -591,7 +579,7 @@ GROUP BY dbo.ADPTimesheets.EmployeeID, CAST(DATEADD(month, DATEDIFF(month, 0, Pa
     design-time-name="Package\ADP Data">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="122.222222222223,41.7777777777778"
           Id="Package\ADP Data\ODS ADP"
@@ -619,7 +607,9 @@ GROUP BY dbo.ADPTimesheets.EmployeeID, CAST(DATEADD(month, DATEDIFF(month, 0, Pa
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
