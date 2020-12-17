@@ -1,0 +1,1848 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/15/2020 5:08:31 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PWNC0429TABLU01"
+  DTS:CreatorName="BDX\10286045"
+  DTS:Description="DTS Wizard-generated package"
+  DTS:DTSID="{AC74D2FB-9B32-409B-88B2-BE04C018EF0F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Package1"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{027FE274-EB46-4C64-9A5C-E0CDE55C7972}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9C28F681-094A-4E34-8C5B-14B367BEC341}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=PWNC0429TABLU01;User ID=&quot;&quot;;Initial Catalog=Ops;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Persist Security Info=False;Initial File Name=&quot;&quot;;Server SPN=&quot;&quot;;Authentication=&quot;&quot;;Access Token=&quot;&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B97B854F-3674-459B-9DC8-2DC3F932649A}"
+      DTS:ObjectName="SourceConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=PWIL0690PSDB22\ODSDW;Initial Catalog=ODS_1;Provider=SQLOLEDB;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{E0CFAA59-AA0F-41F4-BB2E-CC723FD629D4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\ODS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="ODS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT x.iObject, 
+       x.IBase, 
+       x.SerialNumber, 
+       x.StrippedReferenceProduct, 
+       x.MaterialID, 
+       x.PMInterval, 
+       x.ProductBusinessUnit, 
+       x.ShipToID, 
+       x.ShipToFSM, 
+       x.ShipToLegacySiteID, 
+       x.SoldToID, 
+       x.SoldToFSM, 
+       x.SoldToLegacySiteID, 
+       x.AssetStatus, 
+       x.Location, 
+       x.SerialProfile, 
+       x.ContractNumber, 
+       x.ContractLineItem, 
+       x.ContractStartDate, 
+       x.ContractEndDate, 
+       x.ServiceDescription, 
+       x.InstallDate, 
+       x.ECDate, 
+       x.ShipDate, 
+       x.IDSContractNumber, 
+       x.Scenario, 
+       x.ResponseProfile, 
+       x.ContractType, 
+       x.ContractStatus, 
+       x.LiveDate, 
+       x.LastPMDate, 
+       x.NextPMDate, 
+       x.PMCurrent, 
+       x.DaysPMPastDue, 
+       x.DeviceStatus, 
+       x.PMRelevantFlag, 
+       x.PMNote, 
+       x.ReferenceProduct
+FROM [dbo].[qvFieldServiceIObject] x</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\ODS.Connections[OleDbConnection]"
+                  connectionManagerID="{7F0BC2E6-8894-4448-9E64-1D5FF5AE5C34}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[iObject]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[iObject]"
+                      length="60"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[iObject]"
+                      name="iObject"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[IBase]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[IBase]"
+                      length="54"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[IBase]"
+                      name="IBase"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[SerialNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[SerialNumber]"
+                      length="54"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[SerialNumber]"
+                      name="SerialNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[StrippedReferenceProduct]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[StrippedReferenceProduct]"
+                      length="120"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[StrippedReferenceProduct]"
+                      name="StrippedReferenceProduct"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[MaterialID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[MaterialID]"
+                      length="60"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[MaterialID]"
+                      name="MaterialID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[PMInterval]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[PMInterval]"
+                      length="162"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[PMInterval]"
+                      name="PMInterval"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ProductBusinessUnit]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ProductBusinessUnit]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ProductBusinessUnit]"
+                      name="ProductBusinessUnit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ShipToID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ShipToID]"
+                      length="30"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ShipToID]"
+                      name="ShipToID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ShipToFSM]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ShipToFSM]"
+                      length="20"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ShipToFSM]"
+                      name="ShipToFSM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ShipToLegacySiteID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ShipToLegacySiteID]"
+                      length="10"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ShipToLegacySiteID]"
+                      name="ShipToLegacySiteID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[SoldToID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[SoldToID]"
+                      length="30"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[SoldToID]"
+                      name="SoldToID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[SoldToFSM]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[SoldToFSM]"
+                      length="20"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[SoldToFSM]"
+                      name="SoldToFSM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[SoldToLegacySiteID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[SoldToLegacySiteID]"
+                      length="10"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[SoldToLegacySiteID]"
+                      name="SoldToLegacySiteID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[AssetStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[AssetStatus]"
+                      length="60"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[AssetStatus]"
+                      name="AssetStatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[Location]"
+                      length="120"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[Location]"
+                      name="Location"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[SerialProfile]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[SerialProfile]"
+                      length="4"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[SerialProfile]"
+                      name="SerialProfile"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ContractNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ContractNumber]"
+                      length="30"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ContractNumber]"
+                      name="ContractNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ContractLineItem]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ContractLineItem]"
+                      length="30"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ContractLineItem]"
+                      name="ContractLineItem"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ContractStartDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ContractStartDate]"
+                      length="10"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ContractStartDate]"
+                      name="ContractStartDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ContractEndDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ContractEndDate]"
+                      length="10"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ContractEndDate]"
+                      name="ContractEndDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ServiceDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ServiceDescription]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ServiceDescription]"
+                      name="ServiceDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[InstallDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[InstallDate]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[InstallDate]"
+                      name="InstallDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ECDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ECDate]"
+                      length="10"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ECDate]"
+                      name="ECDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ShipDate]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ShipDate]"
+                      name="ShipDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[IDSContractNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[IDSContractNumber]"
+                      length="36"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[IDSContractNumber]"
+                      name="IDSContractNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[Scenario]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[Scenario]"
+                      length="30"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[Scenario]"
+                      name="Scenario"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ResponseProfile]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ResponseProfile]"
+                      length="30"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ResponseProfile]"
+                      name="ResponseProfile"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ContractType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ContractType]"
+                      length="12"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ContractType]"
+                      name="ContractType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ContractStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ContractStatus]"
+                      length="15"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ContractStatus]"
+                      name="ContractStatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[LiveDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[LiveDate]"
+                      length="27"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[LiveDate]"
+                      name="LiveDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[LastPMDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[LastPMDate]"
+                      length="27"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[LastPMDate]"
+                      name="LastPMDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[NextPMDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[NextPMDate]"
+                      length="27"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[NextPMDate]"
+                      name="NextPMDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[PMCurrent]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[PMCurrent]"
+                      length="1"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[PMCurrent]"
+                      name="PMCurrent"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[DaysPMPastDue]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[DaysPMPastDue]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[DaysPMPastDue]"
+                      name="DaysPMPastDue"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[DeviceStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[DeviceStatus]"
+                      length="60"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[DeviceStatus]"
+                      name="DeviceStatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[PMRelevantFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[PMRelevantFlag]"
+                      length="1"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[PMRelevantFlag]"
+                      name="PMRelevantFlag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[PMNote]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[PMNote]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[PMNote]"
+                      name="PMNote"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ReferenceProduct]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ReferenceProduct]"
+                      length="120"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ReferenceProduct]"
+                      name="ReferenceProduct"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[iObject]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="iObject" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[IBase]"
+                      codePage="1252"
+                      dataType="str"
+                      length="54"
+                      name="IBase" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[SerialNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="54"
+                      name="SerialNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[StrippedReferenceProduct]"
+                      codePage="1252"
+                      dataType="str"
+                      length="120"
+                      name="StrippedReferenceProduct" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[MaterialID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="MaterialID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[PMInterval]"
+                      codePage="1252"
+                      dataType="str"
+                      length="162"
+                      name="PMInterval" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ProductBusinessUnit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ProductBusinessUnit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ShipToID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="ShipToID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ShipToFSM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="ShipToFSM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ShipToLegacySiteID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ShipToLegacySiteID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[SoldToID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="SoldToID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[SoldToFSM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="SoldToFSM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[SoldToLegacySiteID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SoldToLegacySiteID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[AssetStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="AssetStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="120"
+                      name="Location" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[SerialProfile]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="SerialProfile" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ContractNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="ContractNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ContractLineItem]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="ContractLineItem" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ContractStartDate]"
+                      dataType="dbDate"
+                      name="ContractStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ContractEndDate]"
+                      dataType="dbDate"
+                      name="ContractEndDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ServiceDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ServiceDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[InstallDate]"
+                      dataType="dbTimeStamp"
+                      name="InstallDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ECDate]"
+                      dataType="dbDate"
+                      name="ECDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      name="ShipDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[IDSContractNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="36"
+                      name="IDSContractNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[Scenario]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Scenario" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ResponseProfile]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="ResponseProfile" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ContractType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="ContractType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ContractStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="ContractStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[LiveDate]"
+                      dataType="dbTimeStamp2"
+                      name="LiveDate"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[LastPMDate]"
+                      dataType="dbTimeStamp2"
+                      name="LastPMDate"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[NextPMDate]"
+                      dataType="dbTimeStamp2"
+                      name="NextPMDate"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[PMCurrent]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="PMCurrent" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[DaysPMPastDue]"
+                      dataType="i4"
+                      name="DaysPMPastDue" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[DeviceStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="DeviceStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[PMRelevantFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="PMRelevantFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[PMNote]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="PMNote" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].ExternalColumns[ReferenceProduct]"
+                      codePage="1252"
+                      dataType="str"
+                      length="120"
+                      name="ReferenceProduct" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[iObject]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[iObject]"
+                      name="iObject" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[IBase]"
+                      codePage="1252"
+                      dataType="str"
+                      length="54"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[IBase]"
+                      name="IBase" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[SerialNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="54"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[SerialNumber]"
+                      name="SerialNumber" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[StrippedReferenceProduct]"
+                      codePage="1252"
+                      dataType="str"
+                      length="120"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[StrippedReferenceProduct]"
+                      name="StrippedReferenceProduct" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[MaterialID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[MaterialID]"
+                      name="MaterialID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[PMInterval]"
+                      codePage="1252"
+                      dataType="str"
+                      length="162"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[PMInterval]"
+                      name="PMInterval" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ProductBusinessUnit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ProductBusinessUnit]"
+                      name="ProductBusinessUnit" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ShipToID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ShipToID]"
+                      name="ShipToID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ShipToFSM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ShipToFSM]"
+                      name="ShipToFSM" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ShipToLegacySiteID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ShipToLegacySiteID]"
+                      name="ShipToLegacySiteID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[SoldToID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[SoldToID]"
+                      name="SoldToID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[SoldToFSM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[SoldToFSM]"
+                      name="SoldToFSM" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[SoldToLegacySiteID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[SoldToLegacySiteID]"
+                      name="SoldToLegacySiteID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[AssetStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[AssetStatus]"
+                      name="AssetStatus" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="120"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[Location]"
+                      name="Location" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[SerialProfile]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[SerialProfile]"
+                      name="SerialProfile" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ContractNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ContractNumber]"
+                      name="ContractNumber" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ContractLineItem]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ContractLineItem]"
+                      name="ContractLineItem" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ContractStartDate]"
+                      dataType="dbDate"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ContractStartDate]"
+                      name="ContractStartDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ContractEndDate]"
+                      dataType="dbDate"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ContractEndDate]"
+                      name="ContractEndDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ServiceDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ServiceDescription]"
+                      name="ServiceDescription" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[InstallDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[InstallDate]"
+                      name="InstallDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ECDate]"
+                      dataType="dbDate"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ECDate]"
+                      name="ECDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ShipDate]"
+                      name="ShipDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[IDSContractNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="36"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[IDSContractNumber]"
+                      name="IDSContractNumber" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[Scenario]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[Scenario]"
+                      name="Scenario" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ResponseProfile]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ResponseProfile]"
+                      name="ResponseProfile" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ContractType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ContractType]"
+                      name="ContractType" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ContractStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ContractStatus]"
+                      name="ContractStatus" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[LiveDate]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[LiveDate]"
+                      name="LiveDate"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[LastPMDate]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[LastPMDate]"
+                      name="LastPMDate"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[NextPMDate]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[NextPMDate]"
+                      name="NextPMDate"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[PMCurrent]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[PMCurrent]"
+                      name="PMCurrent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[DaysPMPastDue]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[DaysPMPastDue]"
+                      name="DaysPMPastDue" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[DeviceStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[DeviceStatus]"
+                      name="DeviceStatus" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[PMRelevantFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[PMRelevantFlag]"
+                      name="PMRelevantFlag" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[PMNote]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[PMNote]"
+                      name="PMNote" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ReferenceProduct]"
+                      codePage="1252"
+                      dataType="str"
+                      length="120"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ReferenceProduct]"
+                      name="ReferenceProduct" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Ops Field Service iObject"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Ops Field Service iObject"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[qvFieldServiceIObject]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Ops Field Service iObject.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[iObject]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="iObject"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[iObject]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[iObject]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[IBase]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="54"
+                      cachedName="IBase"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[IBase]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[IBase]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[SerialNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="54"
+                      cachedName="SerialNumber"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[SerialNumber]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[SerialNumber]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[StrippedReferenceProduct]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="120"
+                      cachedName="StrippedReferenceProduct"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[StrippedReferenceProduct]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[StrippedReferenceProduct]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[MaterialID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="MaterialID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[MaterialID]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[MaterialID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[PMInterval]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="162"
+                      cachedName="PMInterval"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[PMInterval]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[PMInterval]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[ProductBusinessUnit]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ProductBusinessUnit"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ProductBusinessUnit]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ProductBusinessUnit]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[ShipToID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="ShipToID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ShipToID]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ShipToID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[ShipToFSM]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="ShipToFSM"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ShipToFSM]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ShipToFSM]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[ShipToLegacySiteID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ShipToLegacySiteID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ShipToLegacySiteID]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ShipToLegacySiteID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[SoldToID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="SoldToID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[SoldToID]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[SoldToID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[SoldToFSM]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="SoldToFSM"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[SoldToFSM]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[SoldToFSM]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[SoldToLegacySiteID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SoldToLegacySiteID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[SoldToLegacySiteID]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[SoldToLegacySiteID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[AssetStatus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="AssetStatus"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[AssetStatus]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[AssetStatus]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[Location]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="120"
+                      cachedName="Location"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[Location]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[Location]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[SerialProfile]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="SerialProfile"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[SerialProfile]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[SerialProfile]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[ContractNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="ContractNumber"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ContractNumber]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ContractNumber]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[ContractLineItem]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="ContractLineItem"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ContractLineItem]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ContractLineItem]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[ContractStartDate]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ContractStartDate"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ContractStartDate]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ContractStartDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[ContractEndDate]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ContractEndDate"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ContractEndDate]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ContractEndDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[ServiceDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="ServiceDescription"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ServiceDescription]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ServiceDescription]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[InstallDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="InstallDate"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[InstallDate]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[InstallDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[ECDate]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ECDate"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ECDate]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ECDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[ShipDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ShipDate"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ShipDate]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ShipDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[IDSContractNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="36"
+                      cachedName="IDSContractNumber"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[IDSContractNumber]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[IDSContractNumber]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[Scenario]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Scenario"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[Scenario]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[Scenario]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[ResponseProfile]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="ResponseProfile"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ResponseProfile]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ResponseProfile]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[ContractType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="ContractType"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ContractType]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ContractType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[ContractStatus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="ContractStatus"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ContractStatus]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ContractStatus]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[LiveDate]"
+                      cachedDataType="wstr"
+                      cachedLength="27"
+                      cachedName="LiveDate"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[LiveDate]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[LiveDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[LastPMDate]"
+                      cachedDataType="wstr"
+                      cachedLength="27"
+                      cachedName="LastPMDate"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[LastPMDate]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[LastPMDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[NextPMDate]"
+                      cachedDataType="wstr"
+                      cachedLength="27"
+                      cachedName="NextPMDate"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[NextPMDate]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[NextPMDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[PMCurrent]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="PMCurrent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[PMCurrent]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[PMCurrent]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[DaysPMPastDue]"
+                      cachedDataType="i4"
+                      cachedName="DaysPMPastDue"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[DaysPMPastDue]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[DaysPMPastDue]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[DeviceStatus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="DeviceStatus"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[DeviceStatus]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[DeviceStatus]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[PMRelevantFlag]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="PMRelevantFlag"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[PMRelevantFlag]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[PMRelevantFlag]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[PMNote]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="PMNote"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[PMNote]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[PMNote]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].Columns[ReferenceProduct]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="120"
+                      cachedName="ReferenceProduct"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ReferenceProduct]"
+                      lineageId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output].Columns[ReferenceProduct]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[iObject]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="iObject"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[IBase]"
+                      codePage="1252"
+                      dataType="str"
+                      length="54"
+                      name="IBase"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[SerialNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="54"
+                      name="SerialNumber"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[StrippedReferenceProduct]"
+                      codePage="1252"
+                      dataType="str"
+                      length="120"
+                      name="StrippedReferenceProduct"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[MaterialID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="MaterialID"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[PMInterval]"
+                      codePage="1252"
+                      dataType="str"
+                      length="162"
+                      name="PMInterval"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ProductBusinessUnit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ProductBusinessUnit"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ShipToID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="ShipToID"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ShipToFSM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="ShipToFSM"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ShipToLegacySiteID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ShipToLegacySiteID"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[SoldToID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="SoldToID"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[SoldToFSM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="SoldToFSM"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[SoldToLegacySiteID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SoldToLegacySiteID"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[AssetStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="AssetStatus"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="120"
+                      name="Location"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[SerialProfile]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="SerialProfile"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ContractNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="ContractNumber"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ContractLineItem]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="ContractLineItem"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ContractStartDate]"
+                      dataType="wstr"
+                      length="10"
+                      name="ContractStartDate"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ContractEndDate]"
+                      dataType="wstr"
+                      length="10"
+                      name="ContractEndDate"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ServiceDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ServiceDescription"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[InstallDate]"
+                      dataType="dbTimeStamp"
+                      name="InstallDate"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ECDate]"
+                      dataType="wstr"
+                      length="10"
+                      name="ECDate"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      name="ShipDate"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[IDSContractNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="36"
+                      name="IDSContractNumber"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[Scenario]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Scenario"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ResponseProfile]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="ResponseProfile"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ContractType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="ContractType"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ContractStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="ContractStatus"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[LiveDate]"
+                      dataType="wstr"
+                      length="27"
+                      name="LiveDate"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[LastPMDate]"
+                      dataType="wstr"
+                      length="27"
+                      name="LastPMDate"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[NextPMDate]"
+                      dataType="wstr"
+                      length="27"
+                      name="NextPMDate"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[PMCurrent]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="PMCurrent"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[DaysPMPastDue]"
+                      dataType="i4"
+                      name="DaysPMPastDue"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[DeviceStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="DeviceStatus"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[PMRelevantFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="PMRelevantFlag"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[PMNote]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="PMNote"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input].ExternalColumns[ReferenceProduct]"
+                      codePage="1252"
+                      dataType="str"
+                      length="120"
+                      name="ReferenceProduct"
+                      scale="255" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Ops Field Service iObject.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Ops Field Service iObject.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Ops Field Service iObject.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Ops Field Service iObject.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task 1\Ops Field Service iObject.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task 1\ODS.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TRUNCATE qvFieldServiceIObject"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{08FF876D-474D-4488-8D31-8AADC38DB12D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TRUNCATE qvFieldServiceIObject"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [qvFieldServiceIObject]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{8110D8F7-24BC-4A26-BF09-A84EB0022C72\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{8110D8F7-24BC-4A26-BF09-A84EB0022C72}"
+      DTS:From="Package\TRUNCATE qvFieldServiceIObject"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{8110D8F7-24BC-4A26-BF09-A84EB0022C72}"
+      DTS:To="Package\Data Flow Task 1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\Data Flow Task 1"
+          TopLeft="11.9,107.1" />
+        <NodeLayout
+          Size="146.4,41.6"
+          Id="Package\TRUNCATE qvFieldServiceIObject"
+          TopLeft="5.50000000000001,5.49999999999995" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[{8110D8F7-24BC-4A26-BF09-A84EB0022C72\}]"
+          TopLeft="78.7,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10.4,59.9999999999999"
+              Start="0,0"
+              End="-10.4,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-6.40000000000001,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.40000000000001,30"
+                    Point2="-10.4,30"
+                    Point3="-10.4,34" />
+                  <mssgle:LineSegment
+                    End="-10.4,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="88,41.6"
+          Id="Package\Data Flow Task 1\ODS"
+          TopLeft="493.5,207.1" />
+        <NodeLayout
+          Size="128,41.6"
+          Id="Package\Data Flow Task 1\Ops Field Service iObject"
+          TopLeft="473.5,308.7" />
+        <EdgeLayout
+          Id="Package\Data Flow Task 1.Paths[OLE DB Source Output]"
+          TopLeft="537.5,248.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task 1\ODS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
