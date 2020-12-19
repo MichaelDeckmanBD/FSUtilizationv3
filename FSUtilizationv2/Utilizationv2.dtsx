@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:MaxErrorCount="0"
   DTS:ObjectName="Utilizationv2"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{0FF7E4E2-CE3C-4968-9CE2-5DD1AC4D6BC5}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{392D9FBE-0EEE-4F96-A7BD-9D28E27C6FDF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -41,14 +41,30 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Data Flow Task 1"
+      DTS:refId="Package\Clear Utilization"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{3EFC6774-4CC3-4314-9EE0-9538BEEBC702}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clear Utilization"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.Utilization " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Utilization"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:DelayValidation="True"
       DTS:DTSID="{E3A399C2-48FA-495B-B5B4-1313A02D33A9}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:FailPackageOnFailure="True"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task 1"
+      DTS:ObjectName="Utilization"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -57,7 +73,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task 1\Destination - Utilizationv2"
+              refId="Package\Utilization\Destination - Utilizationv2"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
@@ -73,7 +89,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Utilizationv2]</property>
+                  name="OpenRowset">[dbo].[Utilization]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -115,410 +131,284 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task 1\Destination - Utilizationv2.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
-                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  refId="Package\Utilization\Destination - Utilizationv2.Connections[OleDbConnection]"
+                  connectionManagerID="{C9CCDAB8-20E4-419D-A8C0-EF30EE84745A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.Ops]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input]"
+                  refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[EmployeeID]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].Columns[EmployeeID]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="20"
                       cachedName="EmployeeID"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[EmployeeID]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[EmployeeID]" />
+                      externalMetadataColumnId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[EmployeeID]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[EmployeeID]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[DisplayName]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].Columns[DisplayName]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="256"
                       cachedName="DisplayName"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[DisplayName]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[DisplayName]" />
+                      externalMetadataColumnId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[DisplayName]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[DisplayName]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[TravelTime]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].Columns[TravelTime]"
                       cachedDataType="i4"
                       cachedName="TravelTime"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[TravelTime]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[TravelTime]" />
+                      externalMetadataColumnId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[TravelTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[TravelTime]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[OnsiteTime]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].Columns[OnsiteTime]"
                       cachedDataType="i4"
                       cachedName="OnsiteTime"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[OnsiteTime]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[OnsiteTime]" />
+                      externalMetadataColumnId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[OnsiteTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[OnsiteTime]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[ReturnTime]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].Columns[ReturnTime]"
                       cachedDataType="i4"
                       cachedName="ReturnTime"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ReturnTime]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ReturnTime]" />
+                      externalMetadataColumnId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ReturnTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[ReturnTime]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[AdminTime]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].Columns[AdminTime]"
                       cachedDataType="numeric"
                       cachedName="AdminTime"
                       cachedPrecision="38"
                       cachedScale="2"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[AdminTime]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[AdminTime]" />
+                      externalMetadataColumnId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[AdminTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[AdminTime]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[InventoryTime]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].Columns[InventoryTime]"
                       cachedDataType="numeric"
                       cachedName="InventoryTime"
                       cachedPrecision="38"
                       cachedScale="2"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[InventoryTime]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[InventoryTime]" />
+                      externalMetadataColumnId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[InventoryTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[InventoryTime]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[ProjectTime]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].Columns[ProjectTime]"
                       cachedDataType="numeric"
                       cachedName="ProjectTime"
                       cachedPrecision="38"
                       cachedScale="2"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ProjectTime]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ProjectTime]" />
+                      externalMetadataColumnId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ProjectTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[ProjectTime]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[MeetingTime]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].Columns[MeetingTime]"
                       cachedDataType="numeric"
                       cachedName="MeetingTime"
                       cachedPrecision="38"
                       cachedScale="2"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[MeetingTime]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MeetingTime]" />
+                      externalMetadataColumnId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[MeetingTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[MeetingTime]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[TrainingTime]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].Columns[TrainingTime]"
                       cachedDataType="numeric"
                       cachedName="TrainingTime"
                       cachedPrecision="38"
                       cachedScale="2"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[TrainingTime]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[TrainingTime]" />
+                      externalMetadataColumnId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[TrainingTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[TrainingTime]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[RegularMin]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].Columns[RegularMin]"
                       cachedDataType="numeric"
                       cachedName="RegularMin"
                       cachedPrecision="38"
                       cachedScale="2"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[RegularMin]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[RegularMin]" />
+                      externalMetadataColumnId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[RegularMin]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[RegularMin]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[MealTimeMin]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].Columns[MealTimeMin]"
                       cachedDataType="numeric"
                       cachedName="MealTimeMin"
                       cachedPrecision="38"
                       cachedScale="2"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[MealTimeMin]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MealTimeMin]" />
+                      externalMetadataColumnId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[MealTimeMin]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[MealTimeMin]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[OvertimeMin]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].Columns[OvertimeMin]"
                       cachedDataType="numeric"
                       cachedName="OvertimeMin"
                       cachedPrecision="38"
                       cachedScale="2"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[OvertimeMin]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[OvertimeMin]" />
+                      externalMetadataColumnId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[OvertimeMin]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[OvertimeMin]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[PTOMin]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].Columns[PTOMin]"
                       cachedDataType="numeric"
                       cachedName="PTOMin"
                       cachedPrecision="38"
                       cachedScale="2"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[PTOMin]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[PTOMin]" />
+                      externalMetadataColumnId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[PTOMin]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[PTOMin]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[EmployeeType]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].Columns[EmployeeType]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="30"
                       cachedName="EmployeeType"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[EmployeeType]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[EmployeeType]" />
+                      externalMetadataColumnId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[EmployeeType]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[EmployeeType]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[Utilization]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].Columns[Utilization]"
                       cachedDataType="numeric"
                       cachedName="Utilization"
                       cachedPrecision="38"
                       cachedScale="26"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[Utilization]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[Utilization]" />
+                      externalMetadataColumnId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[Utilization]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[Utilization]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[Productivity]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].Columns[Productivity]"
                       cachedDataType="numeric"
                       cachedName="Productivity"
                       cachedPrecision="38"
                       cachedScale="6"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[Productivity]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[Productivity]" />
+                      externalMetadataColumnId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[Productivity]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[Productivity]" />
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[CustomerFacingProductivity]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].Columns[CustomerFacingProductivity]"
                       cachedDataType="numeric"
                       cachedName="CustomerFacingProductivity"
                       cachedPrecision="38"
                       cachedScale="26"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[CustomerFacingProductivity]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[CustomerFacingProductivity]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[ManagerEmployeeIDLevel1]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="20"
-                      cachedName="ManagerEmployeeIDLevel1"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ManagerEmployeeIDLevel1]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerEmployeeIDLevel1]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[ManagerFullNameLevel1]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="256"
-                      cachedName="ManagerFullNameLevel1"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ManagerFullNameLevel1]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerFullNameLevel1]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[ManagerJobTitleLevel1]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="64"
-                      cachedName="ManagerJobTitleLevel1"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ManagerJobTitleLevel1]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerJobTitleLevel1]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[ManagerEmployeeIDLevel2]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="20"
-                      cachedName="ManagerEmployeeIDLevel2"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ManagerEmployeeIDLevel2]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerEmployeeIDLevel2]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[ManagerFullNameLevel2]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="256"
-                      cachedName="ManagerFullNameLevel2"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ManagerFullNameLevel2]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerFullNameLevel2]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[ManagerJobTitleLevel2]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="64"
-                      cachedName="ManagerJobTitleLevel2"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ManagerJobTitleLevel2]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerJobTitleLevel2]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[ManagerEmployeeIDLevel3]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="20"
-                      cachedName="ManagerEmployeeIDLevel3"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ManagerEmployeeIDLevel3]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerEmployeeIDLevel3]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].Columns[ManagerFullNameLevel3]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="256"
-                      cachedName="ManagerFullNameLevel3"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ManagerFullNameLevel3]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerFullNameLevel3]" />
+                      externalMetadataColumnId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[CustomerFacingProductivity]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[CustomerFacingProductivity]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[EmployeeID]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[EmployeeID]"
                       codePage="1252"
                       dataType="str"
                       length="20"
-                      name="EmployeeID"
-                      scale="255" />
+                      name="EmployeeID" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[DisplayName]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[DisplayName]"
                       codePage="1252"
                       dataType="str"
                       length="256"
-                      name="DisplayName"
-                      scale="255" />
+                      name="DisplayName" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[TravelTime]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[TravelTime]"
                       dataType="i4"
-                      name="TravelTime"
-                      scale="255" />
+                      name="TravelTime" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[OnsiteTime]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[OnsiteTime]"
                       dataType="i4"
-                      name="OnsiteTime"
-                      scale="255" />
+                      name="OnsiteTime" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ReturnTime]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ReturnTime]"
                       dataType="i4"
-                      name="ReturnTime"
-                      scale="255" />
+                      name="ReturnTime" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[AdminTime]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[AdminTime]"
                       dataType="numeric"
                       name="AdminTime"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[InventoryTime]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[InventoryTime]"
                       dataType="numeric"
                       name="InventoryTime"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ProjectTime]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ProjectTime]"
                       dataType="numeric"
                       name="ProjectTime"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[MeetingTime]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[MeetingTime]"
                       dataType="numeric"
                       name="MeetingTime"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[TrainingTime]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[TrainingTime]"
                       dataType="numeric"
                       name="TrainingTime"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[RegularMin]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[RegularMin]"
                       dataType="numeric"
                       name="RegularMin"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[MealTimeMin]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[MealTimeMin]"
                       dataType="numeric"
                       name="MealTimeMin"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[OvertimeMin]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[OvertimeMin]"
                       dataType="numeric"
                       name="OvertimeMin"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[PTOMin]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[PTOMin]"
                       dataType="numeric"
                       name="PTOMin"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[EmployeeType]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[EmployeeType]"
                       codePage="1252"
                       dataType="str"
                       length="30"
-                      name="EmployeeType"
-                      scale="255" />
+                      name="EmployeeType" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[Utilization]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[Utilization]"
                       dataType="numeric"
                       name="Utilization"
                       precision="38"
                       scale="26" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[Productivity]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[Productivity]"
                       dataType="numeric"
                       name="Productivity"
                       precision="38"
                       scale="6" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[CustomerFacingProductivity]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[CustomerFacingProductivity]"
                       dataType="numeric"
                       name="CustomerFacingProductivity"
                       precision="38"
                       scale="26" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ManagerEmployeeIDLevel1]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      name="ManagerEmployeeIDLevel1"
-                      scale="255" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ManagerFullNameLevel1]"
-                      codePage="1252"
-                      dataType="str"
-                      length="256"
-                      name="ManagerFullNameLevel1"
-                      scale="255" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ManagerJobTitleLevel1]"
-                      codePage="1252"
-                      dataType="str"
-                      length="64"
-                      name="ManagerJobTitleLevel1"
-                      scale="255" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ManagerEmployeeIDLevel2]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      name="ManagerEmployeeIDLevel2"
-                      scale="255" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ManagerFullNameLevel2]"
-                      codePage="1252"
-                      dataType="str"
-                      length="256"
-                      name="ManagerFullNameLevel2"
-                      scale="255" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ManagerJobTitleLevel2]"
-                      codePage="1252"
-                      dataType="str"
-                      length="64"
-                      name="ManagerJobTitleLevel2"
-                      scale="255" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ManagerEmployeeIDLevel3]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      name="ManagerEmployeeIDLevel3"
-                      scale="255" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input].ExternalColumns[ManagerFullNameLevel3]"
-                      codePage="1252"
-                      dataType="str"
-                      length="256"
-                      name="ManagerFullNameLevel3"
-                      scale="255" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task 1\Destination - Utilizationv2.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Utilization\Destination - Utilizationv2.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input]">
+                  synchronousInputId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Destination - Utilizationv2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Utilization\Destination - Utilizationv2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Destination - Utilizationv2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Utilization\Destination - Utilizationv2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Destination - Utilizationv2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Utilization\Destination - Utilizationv2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -527,11 +417,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task 1\Source - Query"
+              refId="Package\Utilization\ODS Utilization"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
-              name="Source - Query"
+              name="ODS Utilization"
               usesDispositions="true"
               version="7">
               <properties>
@@ -750,446 +640,446 @@ WITH EmpHierarchy
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task 1\Source - Query.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
-                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  refId="Package\Utilization\ODS Utilization.Connections[OleDbConnection]"
+                  connectionManagerID="{7F0BC2E6-8894-4448-9E64-1D5FF5AE5C34}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output]"
+                  refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[EmployeeID]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[EmployeeID]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[EmployeeID]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[EmployeeID]"
                       length="20"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[EmployeeID]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[EmployeeID]"
                       name="EmployeeID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[DisplayName]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[DisplayName]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[DisplayName]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[DisplayName]"
                       length="256"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[DisplayName]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[DisplayName]"
                       name="DisplayName"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[TravelTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[TravelTime]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[TravelTime]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[TravelTime]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[TravelTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[TravelTime]"
                       name="TravelTime"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[OnsiteTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[OnsiteTime]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[OnsiteTime]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[OnsiteTime]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[OnsiteTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[OnsiteTime]"
                       name="OnsiteTime"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ReturnTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[ReturnTime]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ReturnTime]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ReturnTime]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[ReturnTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[ReturnTime]"
                       name="ReturnTime"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[AdminTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[AdminTime]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[AdminTime]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[AdminTime]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[AdminTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[AdminTime]"
                       name="AdminTime"
                       precision="38"
                       scale="2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[InventoryTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[InventoryTime]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[InventoryTime]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[InventoryTime]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[InventoryTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[InventoryTime]"
                       name="InventoryTime"
                       precision="38"
                       scale="2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ProjectTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[ProjectTime]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ProjectTime]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ProjectTime]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[ProjectTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[ProjectTime]"
                       name="ProjectTime"
                       precision="38"
                       scale="2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MeetingTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[MeetingTime]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[MeetingTime]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MeetingTime]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[MeetingTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[MeetingTime]"
                       name="MeetingTime"
                       precision="38"
                       scale="2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[TrainingTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[TrainingTime]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[TrainingTime]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[TrainingTime]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[TrainingTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[TrainingTime]"
                       name="TrainingTime"
                       precision="38"
                       scale="2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[RegularMin]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[RegularMin]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[RegularMin]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[RegularMin]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[RegularMin]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[RegularMin]"
                       name="RegularMin"
                       precision="38"
                       scale="2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MealTimeMin]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[MealTimeMin]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[MealTimeMin]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[MealTimeMin]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[MealTimeMin]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[MealTimeMin]"
                       name="MealTimeMin"
                       precision="38"
                       scale="2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[OvertimeMin]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[OvertimeMin]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[OvertimeMin]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[OvertimeMin]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[OvertimeMin]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[OvertimeMin]"
                       name="OvertimeMin"
                       precision="38"
                       scale="2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[PTOMin]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[PTOMin]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[PTOMin]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[PTOMin]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[PTOMin]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[PTOMin]"
                       name="PTOMin"
                       precision="38"
                       scale="2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[EmployeeType]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[EmployeeType]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[EmployeeType]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[EmployeeType]"
                       length="30"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[EmployeeType]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[EmployeeType]"
                       name="EmployeeType"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[Utilization]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[Utilization]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[Utilization]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[Utilization]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[Utilization]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[Utilization]"
                       name="Utilization"
                       precision="38"
                       scale="26"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[Productivity]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[Productivity]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[Productivity]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[Productivity]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[Productivity]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[Productivity]"
                       name="Productivity"
                       precision="38"
                       scale="6"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[CustomerFacingProductivity]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[CustomerFacingProductivity]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[CustomerFacingProductivity]"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[CustomerFacingProductivity]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[CustomerFacingProductivity]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[CustomerFacingProductivity]"
                       name="CustomerFacingProductivity"
                       precision="38"
                       scale="26"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerEmployeeIDLevel1]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[ManagerEmployeeIDLevel1]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ManagerEmployeeIDLevel1]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[ManagerEmployeeIDLevel1]"
                       length="20"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerEmployeeIDLevel1]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[ManagerEmployeeIDLevel1]"
                       name="ManagerEmployeeIDLevel1"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerFullNameLevel1]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[ManagerFullNameLevel1]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ManagerFullNameLevel1]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[ManagerFullNameLevel1]"
                       length="256"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerFullNameLevel1]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[ManagerFullNameLevel1]"
                       name="ManagerFullNameLevel1"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerJobTitleLevel1]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[ManagerJobTitleLevel1]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ManagerJobTitleLevel1]"
-                      length="64"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerJobTitleLevel1]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[ManagerJobTitleLevel1]"
+                      length="255"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[ManagerJobTitleLevel1]"
                       name="ManagerJobTitleLevel1"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerEmployeeIDLevel2]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[ManagerEmployeeIDLevel2]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ManagerEmployeeIDLevel2]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[ManagerEmployeeIDLevel2]"
                       length="20"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerEmployeeIDLevel2]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[ManagerEmployeeIDLevel2]"
                       name="ManagerEmployeeIDLevel2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerFullNameLevel2]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[ManagerFullNameLevel2]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ManagerFullNameLevel2]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[ManagerFullNameLevel2]"
                       length="256"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerFullNameLevel2]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[ManagerFullNameLevel2]"
                       name="ManagerFullNameLevel2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerJobTitleLevel2]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[ManagerJobTitleLevel2]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ManagerJobTitleLevel2]"
-                      length="64"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerJobTitleLevel2]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[ManagerJobTitleLevel2]"
+                      length="255"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[ManagerJobTitleLevel2]"
                       name="ManagerJobTitleLevel2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerEmployeeIDLevel3]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[ManagerEmployeeIDLevel3]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ManagerEmployeeIDLevel3]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[ManagerEmployeeIDLevel3]"
                       length="20"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerEmployeeIDLevel3]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[ManagerEmployeeIDLevel3]"
                       name="ManagerEmployeeIDLevel3"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerFullNameLevel3]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[ManagerFullNameLevel3]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ManagerFullNameLevel3]"
+                      externalMetadataColumnId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[ManagerFullNameLevel3]"
                       length="256"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ManagerFullNameLevel3]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].Columns[ManagerFullNameLevel3]"
                       name="ManagerFullNameLevel3"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[EmployeeID]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[EmployeeID]"
                       codePage="1252"
                       dataType="str"
                       length="20"
                       name="EmployeeID" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[DisplayName]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[DisplayName]"
                       codePage="1252"
                       dataType="str"
                       length="256"
                       name="DisplayName" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[TravelTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[TravelTime]"
                       dataType="i4"
                       name="TravelTime" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[OnsiteTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[OnsiteTime]"
                       dataType="i4"
                       name="OnsiteTime" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ReturnTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[ReturnTime]"
                       dataType="i4"
                       name="ReturnTime" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[AdminTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[AdminTime]"
                       dataType="numeric"
                       name="AdminTime"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[InventoryTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[InventoryTime]"
                       dataType="numeric"
                       name="InventoryTime"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ProjectTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[ProjectTime]"
                       dataType="numeric"
                       name="ProjectTime"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[MeetingTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[MeetingTime]"
                       dataType="numeric"
                       name="MeetingTime"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[TrainingTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[TrainingTime]"
                       dataType="numeric"
                       name="TrainingTime"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[RegularMin]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[RegularMin]"
                       dataType="numeric"
                       name="RegularMin"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[MealTimeMin]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[MealTimeMin]"
                       dataType="numeric"
                       name="MealTimeMin"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[OvertimeMin]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[OvertimeMin]"
                       dataType="numeric"
                       name="OvertimeMin"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[PTOMin]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[PTOMin]"
                       dataType="numeric"
                       name="PTOMin"
                       precision="38"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[EmployeeType]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[EmployeeType]"
                       codePage="1252"
                       dataType="str"
                       length="30"
                       name="EmployeeType" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[Utilization]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[Utilization]"
                       dataType="numeric"
                       name="Utilization"
                       precision="38"
                       scale="26" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[Productivity]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[Productivity]"
                       dataType="numeric"
                       name="Productivity"
                       precision="38"
                       scale="6" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[CustomerFacingProductivity]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[CustomerFacingProductivity]"
                       dataType="numeric"
                       name="CustomerFacingProductivity"
                       precision="38"
                       scale="26" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ManagerEmployeeIDLevel1]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[ManagerEmployeeIDLevel1]"
                       codePage="1252"
                       dataType="str"
                       length="20"
                       name="ManagerEmployeeIDLevel1" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ManagerFullNameLevel1]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[ManagerFullNameLevel1]"
                       codePage="1252"
                       dataType="str"
                       length="256"
                       name="ManagerFullNameLevel1" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ManagerJobTitleLevel1]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[ManagerJobTitleLevel1]"
                       codePage="1252"
                       dataType="str"
-                      length="64"
+                      length="255"
                       name="ManagerJobTitleLevel1" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ManagerEmployeeIDLevel2]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[ManagerEmployeeIDLevel2]"
                       codePage="1252"
                       dataType="str"
                       length="20"
                       name="ManagerEmployeeIDLevel2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ManagerFullNameLevel2]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[ManagerFullNameLevel2]"
                       codePage="1252"
                       dataType="str"
                       length="256"
                       name="ManagerFullNameLevel2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ManagerJobTitleLevel2]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[ManagerJobTitleLevel2]"
                       codePage="1252"
                       dataType="str"
-                      length="64"
+                      length="255"
                       name="ManagerJobTitleLevel2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ManagerEmployeeIDLevel3]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[ManagerEmployeeIDLevel3]"
                       codePage="1252"
                       dataType="str"
                       length="20"
                       name="ManagerEmployeeIDLevel3" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ManagerFullNameLevel3]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output].ExternalColumns[ManagerFullNameLevel3]"
                       codePage="1252"
                       dataType="str"
                       length="256"
@@ -1197,196 +1087,196 @@ WITH EmpHierarchy
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output]"
+                  refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[EmployeeID]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[EmployeeID]"
                       codePage="1252"
                       dataType="str"
                       length="20"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[EmployeeID]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[EmployeeID]"
                       name="EmployeeID" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[DisplayName]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[DisplayName]"
                       codePage="1252"
                       dataType="str"
                       length="256"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[DisplayName]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[DisplayName]"
                       name="DisplayName" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[TravelTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[TravelTime]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[TravelTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[TravelTime]"
                       name="TravelTime" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[OnsiteTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[OnsiteTime]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[OnsiteTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[OnsiteTime]"
                       name="OnsiteTime" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ReturnTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ReturnTime]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ReturnTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ReturnTime]"
                       name="ReturnTime" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[AdminTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[AdminTime]"
                       dataType="numeric"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[AdminTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[AdminTime]"
                       name="AdminTime"
                       precision="38"
                       scale="2" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[InventoryTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[InventoryTime]"
                       dataType="numeric"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[InventoryTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[InventoryTime]"
                       name="InventoryTime"
                       precision="38"
                       scale="2" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ProjectTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ProjectTime]"
                       dataType="numeric"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ProjectTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ProjectTime]"
                       name="ProjectTime"
                       precision="38"
                       scale="2" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[MeetingTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[MeetingTime]"
                       dataType="numeric"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[MeetingTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[MeetingTime]"
                       name="MeetingTime"
                       precision="38"
                       scale="2" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[TrainingTime]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[TrainingTime]"
                       dataType="numeric"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[TrainingTime]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[TrainingTime]"
                       name="TrainingTime"
                       precision="38"
                       scale="2" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[RegularMin]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[RegularMin]"
                       dataType="numeric"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[RegularMin]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[RegularMin]"
                       name="RegularMin"
                       precision="38"
                       scale="2" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[MealTimeMin]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[MealTimeMin]"
                       dataType="numeric"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[MealTimeMin]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[MealTimeMin]"
                       name="MealTimeMin"
                       precision="38"
                       scale="2" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[OvertimeMin]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[OvertimeMin]"
                       dataType="numeric"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[OvertimeMin]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[OvertimeMin]"
                       name="OvertimeMin"
                       precision="38"
                       scale="2" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[PTOMin]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[PTOMin]"
                       dataType="numeric"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[PTOMin]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[PTOMin]"
                       name="PTOMin"
                       precision="38"
                       scale="2" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[EmployeeType]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[EmployeeType]"
                       codePage="1252"
                       dataType="str"
                       length="30"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[EmployeeType]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[EmployeeType]"
                       name="EmployeeType" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[Utilization]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[Utilization]"
                       dataType="numeric"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[Utilization]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[Utilization]"
                       name="Utilization"
                       precision="38"
                       scale="26" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[Productivity]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[Productivity]"
                       dataType="numeric"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[Productivity]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[Productivity]"
                       name="Productivity"
                       precision="38"
                       scale="6" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[CustomerFacingProductivity]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[CustomerFacingProductivity]"
                       dataType="numeric"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[CustomerFacingProductivity]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[CustomerFacingProductivity]"
                       name="CustomerFacingProductivity"
                       precision="38"
                       scale="26" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ManagerEmployeeIDLevel1]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ManagerEmployeeIDLevel1]"
                       codePage="1252"
                       dataType="str"
                       length="20"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ManagerEmployeeIDLevel1]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ManagerEmployeeIDLevel1]"
                       name="ManagerEmployeeIDLevel1" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ManagerFullNameLevel1]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ManagerFullNameLevel1]"
                       codePage="1252"
                       dataType="str"
                       length="256"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ManagerFullNameLevel1]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ManagerFullNameLevel1]"
                       name="ManagerFullNameLevel1" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ManagerJobTitleLevel1]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ManagerJobTitleLevel1]"
                       codePage="1252"
                       dataType="str"
-                      length="64"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ManagerJobTitleLevel1]"
+                      length="255"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ManagerJobTitleLevel1]"
                       name="ManagerJobTitleLevel1" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ManagerEmployeeIDLevel2]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ManagerEmployeeIDLevel2]"
                       codePage="1252"
                       dataType="str"
                       length="20"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ManagerEmployeeIDLevel2]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ManagerEmployeeIDLevel2]"
                       name="ManagerEmployeeIDLevel2" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ManagerFullNameLevel2]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ManagerFullNameLevel2]"
                       codePage="1252"
                       dataType="str"
                       length="256"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ManagerFullNameLevel2]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ManagerFullNameLevel2]"
                       name="ManagerFullNameLevel2" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ManagerJobTitleLevel2]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ManagerJobTitleLevel2]"
                       codePage="1252"
                       dataType="str"
-                      length="64"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ManagerJobTitleLevel2]"
+                      length="255"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ManagerJobTitleLevel2]"
                       name="ManagerJobTitleLevel2" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ManagerEmployeeIDLevel3]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ManagerEmployeeIDLevel3]"
                       codePage="1252"
                       dataType="str"
                       length="20"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ManagerEmployeeIDLevel3]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ManagerEmployeeIDLevel3]"
                       name="ManagerEmployeeIDLevel3" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ManagerFullNameLevel3]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ManagerFullNameLevel3]"
                       codePage="1252"
                       dataType="str"
                       length="256"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ManagerFullNameLevel3]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ManagerFullNameLevel3]"
                       name="ManagerFullNameLevel3" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1397,28 +1287,12 @@ WITH EmpHierarchy
           </components>
           <paths>
             <path
-              refId="Package\Data Flow Task 1.Paths[OLE DB Source Output]"
-              endId="Package\Data Flow Task 1\Destination - Utilizationv2.Inputs[Destination Input]"
+              refId="Package\Utilization.Paths[OLE DB Source Output]"
+              endId="Package\Utilization\Destination - Utilizationv2.Inputs[Destination Input]"
               name="OLE DB Source Output"
-              startId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output]" />
+              startId="Package\Utilization\ODS Utilization.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Preparation SQL Task 1"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:DTSID="{3EFC6774-4CC3-4314-9EE0-9538BEEBC702}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:FailPackageOnFailure="True"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Preparation SQL Task 1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{A32CA003-937C-46E5-BE44-9F5A8ED5A5FC}"
-          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[Utilizationv2] (&#xA;[EmployeeID] varchar(20),&#xA;[DisplayName] varchar(256),&#xA;[TravelTime] int,&#xA;[OnsiteTime] int,&#xA;[ReturnTime] int,&#xA;[AdminTime] decimal(38,2) NOT NULL,&#xA;[InventoryTime] decimal(38,2) NOT NULL,&#xA;[ProjectTime] decimal(38,2) NOT NULL,&#xA;[MeetingTime] decimal(38,2) NOT NULL,&#xA;[TrainingTime] decimal(38,2) NOT NULL,&#xA;[RegularMin] decimal(38,2),&#xA;[MealTimeMin] decimal(38,2),&#xA;[OvertimeMin] decimal(38,2),&#xA;[PTOMin] decimal(38,2),&#xA;[EmployeeType] varchar(30),&#xA;[Utilization] decimal(38,26),&#xA;[Productivity] decimal(38,6),&#xA;[CustomerFacingProductivity] decimal(38,26),&#xA;[ManagerEmployeeIDLevel1] varchar(20),&#xA;[ManagerFullNameLevel1] varchar(256),&#xA;[ManagerJobTitleLevel1] varchar(64),&#xA;[ManagerEmployeeIDLevel2] varchar(20),&#xA;[ManagerFullNameLevel2] varchar(256),&#xA;[ManagerJobTitleLevel2] varchar(64),&#xA;[ManagerEmployeeIDLevel3] varchar(20),&#xA;[ManagerFullNameLevel3] varchar(256)&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1427,10 +1301,10 @@ WITH EmpHierarchy
       DTS:refId="Package.PrecedenceConstraints[{22C9A27A-A8B9-4780-A2A9-47546F8BEB92\}]"
       DTS:CreationName=""
       DTS:DTSID="{22C9A27A-A8B9-4780-A2A9-47546F8BEB92}"
-      DTS:From="Package\Preparation SQL Task 1"
+      DTS:From="Package\Clear Utilization"
       DTS:LogicalAnd="True"
       DTS:ObjectName="{22C9A27A-A8B9-4780-A2A9-47546F8BEB92}"
-      DTS:To="Package\Data Flow Task 1" />
+      DTS:To="Package\Utilization" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1445,27 +1319,27 @@ WITH EmpHierarchy
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="116.444444444445,41.7777777777778"
-          Id="Package\Data Flow Task 1"
-          TopLeft="12.8333333333333,107.277777777778" />
+          Size="97.6,41.6"
+          Id="Package\Utilization"
+          TopLeft="81.2333333333333,138.077777777778" />
         <NodeLayout
-          Size="131.111111111112,41.7777777777778"
-          Id="Package\Preparation SQL Task 1"
-          TopLeft="5.50000000000001,5.50000000000002" />
+          Size="131.2,41.6"
+          Id="Package\Clear Utilization"
+          TopLeft="65.5,30.3" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[{22C9A27A-A8B9-4780-A2A9-47546F8BEB92\}]"
-          TopLeft="71.0555555555556,47.2777777777778">
+          TopLeft="130.566666666667,71.9">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="0,66.177777777778"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="0,58.677777777778">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,58.677777777778" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1477,5 +1351,64 @@ WITH EmpHierarchy
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Utilization">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="128,41.6"
+          Id="Package\Utilization\Destination - Utilizationv2"
+          TopLeft="5.50000000000001,107.1" />
+        <NodeLayout
+          Size="108.8,41.6"
+          Id="Package\Utilization\ODS Utilization"
+          TopLeft="15.5,5.49999999999995" />
+        <EdgeLayout
+          Id="Package\Utilization.Paths[OLE DB Source Output]"
+          TopLeft="69.7,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Utilization\Destination - Utilizationv2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Utilization\ODS Utilization">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
